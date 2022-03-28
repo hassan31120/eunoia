@@ -257,6 +257,11 @@ return [
             'icon'        => 'fas fa-fw fa-user-md',
         ],
         [
+            'text'        => 'diseases',
+            'url'         => 'admin/diseases',
+            'icon'        => 'fas fa-fw fa-disease',
+        ],
+        [
             'text'        => 'activities',
             'url'         => 'admin/activities',
             'icon'        => 'fas fa-fw fa-list',
