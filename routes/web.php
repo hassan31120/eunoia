@@ -25,6 +25,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function(){
     Route::get('/' ,[App\Http\Controllers\AdminUsersController::class, 'admin'])->name('admin');
     Route::get('users' ,[App\Http\Controllers\AdminUsersController::class, 'index'])->name('admin.users');
+    Route::get('doctors' ,[App\Http\Controllers\AdminUsersController::class, 'doctors'])->name('admin.doctors');
     Route::get('users/create' ,[App\Http\Controllers\AdminUsersController::class, 'create'])->name('admin.user.create');
     Route::post('users/store' ,[App\Http\Controllers\AdminUsersController::class, 'store'])->name('admin.user.store');
     Route::get('users/edit/{id}' ,[App\Http\Controllers\AdminUsersController::class, 'edit'])->name('admin.user.edit');
