@@ -23,6 +23,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function(){
+    Route::get('/' ,[App\Http\Controllers\AdminUsersController::class, 'admin'])->name('admin');
     Route::get('users' ,[App\Http\Controllers\AdminUsersController::class, 'index'])->name('admin.users');
     Route::get('users/create' ,[App\Http\Controllers\AdminUsersController::class, 'create'])->name('admin.user.create');
     Route::post('users/store' ,[App\Http\Controllers\AdminUsersController::class, 'store'])->name('admin.user.store');

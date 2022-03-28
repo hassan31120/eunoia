@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Hash;
 class AdminUsersController extends Controller
 {
 
+    public function admin()
+    {
+        return view('admin.admin');
+    }
+
     public function index()
     {
         $users = User::where('user_type' , 0)->get();
