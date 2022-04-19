@@ -48,4 +48,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function activities(){
+        return $this->belongsToMany('App\Models\Activity', 'users_activities' , 'user_id', 'activity_id');
+    }
+
+    public function surveys(){
+        return $this->belongsToMany('App\Models\Survey', 'users_surveys' , 'user_id', 'survey_id');
+    }
 }
