@@ -21,4 +21,3 @@ class Activity extends Model
     }
 
 }
-//kajsaksa
