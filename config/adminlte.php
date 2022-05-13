@@ -272,6 +272,16 @@ return [
             'icon'        => 'fas fa-fw fa-poll',
         ],
         [
+            'text'        => 'questions',
+            'url'         => 'admin/questions',
+            'icon'        => 'fas fa-fw fa-question',
+        ],
+        [
+            'text'        => 'answers',
+            'url'         => 'admin/answers',
+            'icon'        => 'fas fa-fw fa-check',
+        ],
+        [
             'text' => 'settings',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-cog',

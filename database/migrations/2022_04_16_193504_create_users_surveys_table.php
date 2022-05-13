@@ -15,8 +15,10 @@ return new class extends Migration
     {
         Schema::create('users_surveys', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->integer('survey_id');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('survey_id');
+            $table->foreign('survey_id')->references('id')->on('surveys');
             $table->timestamps();
         });
     }

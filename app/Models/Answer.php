@@ -9,10 +9,15 @@ class Answer extends Model
 {
     use HasFactory;
 
-    protected $guarded  = [  ];
+   // protected $guarded  = [  ];
+    protected $fillable = [
+        'weight',
+        'answer'
+
+    ];
 
     public function questions(){
-        return $this->belongsToMany('App\Models\Question', 'questions_answers' , 'question_id', 'answer_id');
+        return $this->belongsToMany(Question::class, 'questions_answers' , 'question_id', 'answer_id');
     }
 
 
