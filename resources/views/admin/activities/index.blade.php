@@ -46,7 +46,7 @@
                 </table>
             @else
             <div class="alert alert-danger" role="alert">
-                <h4 class="text-center">Sorry, There is no diseases!</h4>
+                <h4 class="text-center">Sorry, There is no activities!</h4>
             </div>
             @endif
         </div>
