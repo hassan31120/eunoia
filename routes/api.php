@@ -39,5 +39,8 @@ Route::resource('activities', ActivitiesController::class);
 
 Route::middleware('auth:api')->group(function(){
     Route::resource('users', ProfileController::class);
+    Route::resource('questions', 'QuestionController');
+    Route::resource('answers', 'AnswerController');
+    Route::resource('surveys', 'SurveyController');
 });
 

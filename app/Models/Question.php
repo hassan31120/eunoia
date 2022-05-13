@@ -9,13 +9,17 @@ class Question extends Model
 {
     use HasFactory;
 
-    protected $guarded  = [  ];
+    //protected $guarded  = [  ];
+    protected $fillable = [
+        'question',
+        'survey_id'
 
+    ];
     public function surveys(){
-        return $this->belongsTo('App\Models\Survey');
+        return $this->belongsTo(Survey::class);
     }
 
     public function answers(){
-        return $this->belongsToMany('App\Models\Answer', 'questions_answers' , 'question_id', 'answer_id');
+        return $this->belongsToMany(Answer::class, 'questions_answers' , 'question_id', 'answer_id');
     }
 }

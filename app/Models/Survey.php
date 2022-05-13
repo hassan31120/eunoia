@@ -9,17 +9,23 @@ class Survey extends Model
 {
     use HasFactory;
 
-    protected $guarded  = [  ];
+    //protected $guarded  = [  ];
 
+    protected $fillable = [
+        'name',
+        'survey_type',
+        'disease_id'
+
+    ];
     public function users(){
-        return $this->belongsToMany('App\Models\User', 'users_surveys' , 'user_id', 'survey_id');
+        return $this->belongsToMany(User::class, 'users_surveys' , 'user_id', 'survey_id');
     }
 
     public function questions(){
-        return $this->hasMany('App\Models\Question');
+        return $this->hasMany(Question::class);
     }
 
     public function diseases(){
-        return $this->belongsTo('App\Models\Disease');
+        return $this->belongsTo(Qiseases::class);
     }
 }

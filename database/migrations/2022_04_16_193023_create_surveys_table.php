@@ -17,7 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('survey_type');
-            $table->integer('disease_id');
+            $table->unsignedBigInteger('disease_id');
+            $table->foreign('disease_id')->references('id')->on('diseases');
             $table->timestamps();
         });
     }
