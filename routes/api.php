@@ -1,8 +1,13 @@
 <?php
 
+use App\Http\Controllers\API\ActivitiesController;
+use App\Http\Controllers\API\AppointmentsController;
 use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\API\DiseaseController;
+use App\Http\Controllers\API\ProfileController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Symfony\Component\HttpKernel\Profiler\Profile;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +28,16 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
 
+Route::get('checkBookDate', [AppointmentsController::class, 'checkBookDate']);
+Route::get('SplitTime', [AppointmentsController::class, 'SplitTime']);
+
+
+// Route::put('updatedata/{id}', [ProfileController::class, 'update']);
+
+Route::resource('diseases', DiseaseController::class);
+Route::resource('activities', ActivitiesController::class);
+
 Route::middleware('auth:api')->group(function(){
-    //
+    Route::resource('users', ProfileController::class);
 });
 

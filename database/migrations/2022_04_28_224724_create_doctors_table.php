@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('doctors', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
@@ -22,14 +22,8 @@ return new class extends Migration
             $table->float('age')->nullable();
             $table->string('phone_no')->nullable();
             $table->string('gender')->nullable();
-            $table->integer('user_type')->default(0);
-            $table->float('survey_score')->nullable();
             $table->text('description')->nullable();
             $table->text('address')->nullable();
-            $table->unsignedBigInteger('doctor_id')->nullable();
-            $table->foreign('doctor_id')->references('id')->on('doctors');
-            $table->unsignedBigInteger('disease_id')->nullable();
-            $table->foreign('disease_id')->references('id')->on('diseases');
             $table->rememberToken();
             $table->timestamps();
         });
@@ -42,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('doctors');
     }
 };

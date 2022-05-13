@@ -18,7 +18,8 @@ return new class extends Migration
             $table->time('time_from');
             $table->time('time_to');
             $table->float('intervals');
-            $table->integer('doctor_id');
+            $table->unsignedBigInteger('doctor_id');
+            $table->foreign('doctor_id')->references('id')->on('doctors');
             $table->timestamps();
         });
     }

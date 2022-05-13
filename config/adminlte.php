@@ -273,7 +273,7 @@ return [
         ],
         [
             'text' => 'settings',
-            'url'  => 'admin/settings',
+            'url'  => 'admin/settings/1',
             'icon' => 'fas fa-fw fa-cog',
         ],
     ],

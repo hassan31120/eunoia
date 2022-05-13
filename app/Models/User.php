@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
@@ -55,5 +56,9 @@ class User extends Authenticatable
 
     public function surveys(){
         return $this->belongsToMany('App\Models\Survey', 'users_surveys' , 'user_id', 'survey_id');
+    }
+
+    public function doctors(){
+        return $this->belongsTo('App\Models\Doctor');
     }
 }

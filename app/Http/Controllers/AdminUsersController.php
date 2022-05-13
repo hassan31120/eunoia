@@ -20,12 +20,6 @@ class AdminUsersController extends Controller
         return view('admin.users.users', compact('users'));
     }
 
-    public function doctors()
-    {
-        $doctors = User::where('user_type' , 1)->get();
-        return view('admin.users.doctors', compact('doctors'));
-    }
-
     public function create()
     {
         return view('admin.users.add');

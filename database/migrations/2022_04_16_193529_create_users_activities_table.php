@@ -15,8 +15,10 @@ return new class extends Migration
     {
         Schema::create('users_activities', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->integer('activity_id');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('activity_id');
+            $table->foreign('activity_id')->references('id')->on('activities');
             $table->float('score');
             $table->string('status');
             $table->timestamps();

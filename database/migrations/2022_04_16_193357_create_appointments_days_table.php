@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('appointments_days', function (Blueprint $table) {
             $table->id();
             $table->string('day');
-            $table->integer('doctor_id');
+            $table->unsignedBigInteger('doctor_id');
+            $table->foreign('doctor_id')->references('id')->on('doctors');
             $table->timestamps();
         });
     }

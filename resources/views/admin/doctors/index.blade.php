@@ -10,13 +10,16 @@
 
 
             <h3 class="text-center">All Doctors</h3>
+
+            <a href="{{route('admin.doctor.create')}}" class="btn btn-primary float-right"> Add Doctor </a>
+
         </div>
         <!-- /.card-header -->
         <div class="card-body">
             <?php $i = 1; ?>
             @include('partial.alerts')
             @if (count($doctors) > 0)
-                <table class="table text-center">
+                <table class="table table-striped text-center">
                     <thead class="thead-dark">
                         <tr>
                             <th>#</th>
@@ -25,6 +28,8 @@
                             <th>Age</th>
                             <th>Gender</th>
                             <th>PhoneNo</th>
+                            <th>Description</th>
+                            <th>Address</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -38,9 +43,11 @@
                                 <td>{{$doctor->age}}</td>
                                 <td>{{$doctor->gender}}</td>
                                 <td>{{$doctor->phone_no}}</td>
+                                <td>{{$doctor->description}}</td>
+                                <td>{{$doctor->address}}</td>
                                 <td>
-                                    <a href="{{route('admin.user.edit', ['id' => $doctor->id])}}" class="btn btn-info"> <i class="fas fa-edit"></i> edit</a>
-                                    <a href="{{route('admin.user.destroy', ['id' => $doctor->id])}}" style="margin-left: 5px" class="btn btn-danger"> <i class="fas fa-trash-alt"></i> delete</a>
+                                    <a href="{{route('admin.doctor.edit', ['id' => $doctor->id])}}" class="btn btn-info"> <i class="fas fa-edit"></i> edit</a>
+                                    <a href="{{route('admin.doctor.destroy', ['id' => $doctor->id])}}" style="margin-top: 5px" class="btn btn-danger"> <i class="fas fa-trash-alt"></i> delete</a>
                                 </td>
                             </tr>
                         @endforeach

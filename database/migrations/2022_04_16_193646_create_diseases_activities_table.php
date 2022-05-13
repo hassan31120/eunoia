@@ -15,8 +15,10 @@ return new class extends Migration
     {
         Schema::create('diseases_activities', function (Blueprint $table) {
             $table->id();
-            $table->integer('disease_id');
-            $table->integer('activity_id');
+            $table->unsignedBigInteger('disease_id');
+            $table->foreign('disease_id')->references('id')->on('diseases');
+            $table->unsignedBigInteger('activity_id');
+            $table->foreign('activity_id')->references('id')->on('activities');
             $table->timestamps();
         });
     }
