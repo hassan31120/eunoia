@@ -24,6 +24,8 @@ Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
 
 Route::middleware('auth:api')->group(function(){
-    //
+    Route::resource('questions', 'QuestionController');
+    Route::resource('answers', 'AnswerController');
+    Route::resource('surveys', 'SurveyController');
 });
 
