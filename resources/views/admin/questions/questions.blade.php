@@ -22,16 +22,17 @@
                     <thead class="thead-dark">
                         <tr>
                             <th>#</th>
-                            <th>question</th>
-                            <th>Survey name</th>
+                            <th>Name</th>
+                            <th>Survey Type</th>
+                            <th>Disease Id</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($surveys as $survey)
+                            
+                        @endforeach
                         @foreach ($questions as $question)
-                        @foreach ($surveys as $survey )
-
-
                             <tr>
 
                                 <td>{{$i++}}</td>
@@ -42,7 +43,6 @@
                                     <a href="{{route('question.destroy', ['id' => $question->id])}}" style="margin-left: 5px" class="btn btn-danger"> <i class="fas fa-trash-alt"></i> delete</a>
                                 </td>
                             </tr>
-                        @endforeach
                         @endforeach
                     </tbody>
                 </table>
