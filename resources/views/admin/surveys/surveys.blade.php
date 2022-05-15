@@ -39,8 +39,9 @@
                                 <td >{{$survey->disease_id}}</td>
                                 <td > <a href="{{route('survey.questions', ['id' => $survey->id])}}" class="btn btn-info btn-light">Questions <i class="fas fa-question"></i></a></td>
                                 <td>
-                                    <a href="{{route('survey.edit', ['id' => $survey->id])}}" class="btn btn-info"> <i class="fas fa-edit"></i> edit</a>
+                                    <a href="{{route('survey.edit', ['id' => $survey->id])}}" class="btn btn-success"> <i class="fas fa-edit"></i> edit</a>
                                     <a href="{{route('survey.destroy', ['id' => $survey->id])}}" style="margin-left: 5px" class="btn btn-danger"> <i class="fas fa-trash-alt"></i> delete</a>
+                                    <a href="#" style="margin-left: 5px" class="btn btn-info"> <i class="fas fa-eye"></i> questions</a>
                                 </td>
                             </tr>
                         @endforeach
