@@ -38,9 +38,12 @@
 
                 <div class="row mb-3">
                     <label for="survey_id" class="col-md-4 col-form-label text-md-end">{{ __('Survey Id') }}</label>
-
                     <div class="col-md-6">
-                        <input id="survey_id" type="intger" value="{{$question->survey_id}}" class="form-control" name="survey_id"  required >
+                    <select name="survey_id" id="survey_id" class="form-control">
+                        @foreach ( $surveys as $survey )
+                        <option value="{{$survey->id}}">{{$survey->name}}</option>
+                        @endforeach
+                    </select>
                     </div>
                 </div>
 

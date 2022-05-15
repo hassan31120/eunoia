@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Question;
+use App\Models\Survey;
 use App\Http\Controllers\API\BaseController as BaseController;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Resources\QuestionResource as QuestionResource;
@@ -15,16 +16,16 @@ class QuestionController extends Controller
     }
 
     public function index()
-    {
+    {   $surveys=Survey::all();
         $questions=Question::all();
-        return view(('admin.questions.questions'),compact('questions'));
+        return view(('admin.questions.questions'),compact('questions','surveys'));
 
     }
 
 
     public function create()
-    {
-       return view('admin.questions.add_questions');
+    { $surveys=Survey::all();
+       return view('admin.questions.add_questions', compact('surveys'));
     }
 
 
@@ -53,9 +54,9 @@ class QuestionController extends Controller
 
 
     public function edit($id)
-    {
+    {   $surveys=Survey::all();
         $question = question::find($id);
-        return view('admin.questions.edit_question', compact('question'));
+        return view('admin.questions.edit_question', compact('question','surveys'));
     }
 
 

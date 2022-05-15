@@ -68,6 +68,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function(){
     Route::get('survey/edit/{id}' ,[App\Http\Controllers\SurveyController::class, 'edit'])->name('survey.edit');
     Route::put('survey/update/{id}' ,[App\Http\Controllers\SurveyController::class, 'update'])->name('survey.update');
     Route::get('survey/destroy/{id}' ,[App\Http\Controllers\SurveyController::class, 'destroy'])->name('survey.destroy');
+    Route::get('surveys/questions/{id}' ,[App\Http\Controllers\SurveyController::class, 'survey_question'])->name('survey.questions');
     //answer
     Route::get('answers' ,[App\Http\Controllers\AnswerController::class, 'index'])->name('answers');
     Route::get('answer/create' ,[App\Http\Controllers\AnswerController::class, 'create'])->name('answer.create');

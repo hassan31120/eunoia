@@ -8,7 +8,7 @@
     <div class="card">
         <div class="card-header">
 
-            <h3 class="text-center">All questions</h3>
+            <h3 class="text-center">Survey questions</h3>
 
             <a href="{{route('question.create')}}" class="btn btn-primary float-right"> Add Question </a>
 
@@ -23,26 +23,23 @@
                         <tr>
                             <th>#</th>
                             <th>question</th>
-                            <th>Survey name</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($questions as $question)
-                        @foreach ($surveys as $survey )
-
 
                             <tr>
 
                                 <td>{{$i++}}</td>
                                 <td>{{$question->question}}</td>
-                                <td>{{$survey->name}}</td>
+
                                 <td>
                                     <a href="{{route('question.edit', ['id' => $question->id])}}" class="btn btn-info"> <i class="fas fa-edit"></i> edit</a>
                                     <a href="{{route('question.destroy', ['id' => $question->id])}}" style="margin-left: 5px" class="btn btn-danger"> <i class="fas fa-trash-alt"></i> delete</a>
                                 </td>
                             </tr>
-                        @endforeach
+
                         @endforeach
                     </tbody>
                 </table>

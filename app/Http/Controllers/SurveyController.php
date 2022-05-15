@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Survey;
+use App\Models\Question;
 use App\Http\Controllers\API\BaseController as BaseController ;
 use App\Http\Resources\SurveyResource as SurveyResource;
 class SurveyController extends Controller
@@ -78,6 +79,14 @@ class SurveyController extends Controller
         $survey->delete();
         return redirect(route('surveys'))->with('message', 'deleted successfully');
     }
+
+    public function survey_question($id)
+    {
+        $survey = Survey::find($id);
+        $questions = Question::where('survey_id',$id)->get();
+        return view('admin.surveys.questions',compact('questions'));
+    }
+
     }
 
 

@@ -25,6 +25,7 @@
                             <th>Name</th>
                             <th>Survey Type</th>
                             <th>Disease Id</th>
+                            <th>Questions</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -34,8 +35,9 @@
 
                                 <td>{{$i++}}</td>
                                 <td>{{$survey->name}}</td>
-                                <td>{{$survey->survey_type}}</td>
-                                <td>{{$survey->disease_id}}</td>
+                                <td >{{$survey->survey_type}}</td>
+                                <td >{{$survey->disease_id}}</td>
+                                <td > <a href="{{route('survey.questions', ['id' => $survey->id])}}" class="btn btn-info btn-light">Questions <i class="fas fa-question"></i></a></td>
                                 <td>
                                     <a href="{{route('survey.edit', ['id' => $survey->id])}}" class="btn btn-info"> <i class="fas fa-edit"></i> edit</a>
                                     <a href="{{route('survey.destroy', ['id' => $survey->id])}}" style="margin-left: 5px" class="btn btn-danger"> <i class="fas fa-trash-alt"></i> delete</a>
