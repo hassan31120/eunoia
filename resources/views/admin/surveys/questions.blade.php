@@ -8,7 +8,7 @@
     <div class="card">
         <div class="card-header">
 
-            <h3 class="text-center">Survey questions</h3>
+            <h3 class="text-center">{{$survey->name}} questions</h3>
 
             <a href="{{route('question.create')}}" class="btn btn-primary float-right"> Add Question </a>
 

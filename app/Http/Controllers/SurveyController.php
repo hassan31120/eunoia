@@ -84,7 +84,7 @@ class SurveyController extends Controller
     {
         $survey = Survey::find($id);
         $questions = Question::where('survey_id',$id)->get();
-        return view('admin.surveys.questions',compact('questions'));
+        return view('admin.surveys.questions',compact('questions' ,'survey'));
     }
 
     }
