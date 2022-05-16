@@ -8,6 +8,8 @@ use App\Models\Survey;
 use App\Models\Question;
 use App\Http\Controllers\API\BaseController as BaseController ;
 use App\Http\Resources\SurveyResource as SurveyResource;
+use App\Models\Disease;
+
 class SurveyController extends Controller
 {
     public function __construct()
@@ -24,7 +26,8 @@ class SurveyController extends Controller
 
     public function create()
     {
-        return view('admin.surveys.add_srv');
+        $diseases = Disease::where('levels','low')->get();
+        return view('admin.surveys.add_srv', compact('diseases'));
     }
 
 

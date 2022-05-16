@@ -51,16 +51,13 @@
 
 
                 <div class="row mb-3">
-                    <label for="disease_id" class="col-md-4 col-form-label text-md-end">{{ __('Disease Id') }}</label>
-
+                    <label for="disease_id" class="col-md-4 col-form-label text-md-end">{{ __('Disease') }}</label>
                     <div class="col-md-6">
-                        <input id="disease_id" type="intger" class="form-control"@error('disease_id') is-invalid @enderror name="disease_id"  required >
-
-                        @error('Disease Id')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
+                    <select name="disease_id" id="disease_id" class="form-control">
+                        @foreach ( $diseases as $disease )
+                        <option value="{{$disease->id}}">{{$disease->name}}</option>
+                        @endforeach
+                    </select>
                     </div>
                 </div>
 

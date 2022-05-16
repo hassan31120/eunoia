@@ -26,6 +26,6 @@ class Survey extends Model
     }
 
     public function diseases(){
-        return $this->belongsTo(Qiseases::class);
+        return $this->belongsTo(Disease::class, 'disease_id');
     }
 }

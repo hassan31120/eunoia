@@ -23,21 +23,20 @@
                         <tr>
                             <th>#</th>
                             <th>Name</th>
-                            <th>Survey Type</th>
-                            <th>Disease Id</th>
+                            <th>Survey</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($surveys as $survey)
-                            
+
                         @endforeach
                         @foreach ($questions as $question)
                             <tr>
 
                                 <td>{{$i++}}</td>
                                 <td>{{$question->question}}</td>
-                                <td>{{$survey->name}}</td>
+                                <td>{{$question->surveys->name}}</td>
                                 <td>
                                     <a href="{{route('question.edit', ['id' => $question->id])}}" class="btn btn-info"> <i class="fas fa-edit"></i> edit</a>
                                     <a href="{{route('question.destroy', ['id' => $question->id])}}" style="margin-left: 5px" class="btn btn-danger"> <i class="fas fa-trash-alt"></i> delete</a>
