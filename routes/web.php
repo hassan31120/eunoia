@@ -5,6 +5,9 @@ use App\Http\Controllers\AdminDiseasesController;
 use App\Http\Controllers\AdminDoctorsController;
 use App\Http\Controllers\AdminSettingsController;
 use App\Http\Controllers\AdminUsersController;
+use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\AnswerController;
+use App\Http\Controllers\SurveyController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 

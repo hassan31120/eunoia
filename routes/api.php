@@ -1,10 +1,14 @@
 <?php
 
 use App\Http\Controllers\API\ActivitiesController;
+use App\Http\Controllers\API\ApianswerController;
+use App\Http\Controllers\API\ApiquestionController;
+use App\Http\Controllers\API\ApisurveyController;
 use App\Http\Controllers\API\AppointmentsController;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\DiseaseController;
 use App\Http\Controllers\API\ProfileController;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Symfony\Component\HttpKernel\Profiler\Profile;
@@ -36,11 +40,11 @@ Route::get('SplitTime', [AppointmentsController::class, 'SplitTime']);
 
 Route::resource('diseases', DiseaseController::class);
 Route::resource('activities', ActivitiesController::class);
+Route::resource('users', ProfileController::class);
+Route::resource('questions', ApiquestionController::class);
+Route::resource('answers', ApianswerController::class);
+Route::resource('surveys', ApisurveyController::class);
+Route::get('survey/question/{id}',[ApisurveyController::class,'survey_question']);
 
-Route::middleware('auth:api')->group(function(){
-    Route::resource('users', ProfileController::class);
-    Route::resource('questions', 'QuestionController');
-    Route::resource('answers', 'AnswerController');
-    Route::resource('surveys', 'SurveyController');
-});
+
 
