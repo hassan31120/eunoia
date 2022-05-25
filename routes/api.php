@@ -46,5 +46,10 @@ Route::resource('answers', ApianswerController::class);
 Route::resource('surveys', ApisurveyController::class);
 Route::get('survey/question/{id}',[ApisurveyController::class,'survey_question']);
 
+Route::middleware('auth:api')->group(function(){
+
+    
+
+});
 
 
