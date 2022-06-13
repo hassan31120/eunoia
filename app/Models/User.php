@@ -61,4 +61,8 @@ class User extends Authenticatable
     public function doctors(){
         return $this->belongsTo('App\Models\Doctor');
     }
+
+    public function diseases(){
+        return $this->belongsTo('App\Models\Disease', 'disease_id');
+    }
 }

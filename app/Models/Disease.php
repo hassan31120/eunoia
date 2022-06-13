@@ -18,4 +18,8 @@ class Disease extends Model
     public function surveys(){
         return $this->hasMany('App\Models\Survey');
     }
+
+    public function users(){
+        return $this->hasMany('App\Models\User');
+    }
 }
