@@ -86,7 +86,8 @@ class ProfileController extends BaseController
         $user = User::find($id);
 
         $validator = Validator::make($input, [
-            'survey_score' => 'required'
+            'survey_score' => 'required',
+            'disease_id' => 'required'
         ]);
 
 
@@ -99,6 +100,7 @@ class ProfileController extends BaseController
         }
 
         $user->survey_score = $input['survey_score'];
+        $user->disease_id  = $input['disease_id'];
 
         $user->save();
 
