@@ -79,6 +79,32 @@ class ProfileController extends BaseController
         return $this->sendResponse(new UserResource($user), 'User Updated successfully!');
     }
 
+    public function updateSurveyScore(Request $request, $id)
+    {
+        $input = $request->all();
+
+        $user = User::find($id);
+
+        $validator = Validator::make($input, [
+            'survey_score' => 'required'
+        ]);
+
+
+        if ($validator->fails()) {
+            return $this->sendError('Validation Error !', $validator->errors());
+        }
+
+        if ($user->id != Auth::user()->id) {
+            return $this->sendError('You dont have right to edit', $validator->errors());
+        }
+
+        $user->survey_score = $input['survey_score'];
+
+        $user->save();
+
+        return $this->sendResponse(new UserResource($user), 'Survey Score Updated successfully!');
+    }
+
     /**
      * Remove the specified resource from storage.
      *
