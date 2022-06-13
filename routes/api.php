@@ -40,15 +40,15 @@ Route::get('SplitTime', [AppointmentsController::class, 'SplitTime']);
 
 Route::resource('diseases', DiseaseController::class);
 Route::resource('activities', ActivitiesController::class);
-Route::resource('users', ProfileController::class);
 Route::resource('questions', ApiquestionController::class);
 Route::resource('answers', ApianswerController::class);
 Route::resource('surveys', ApisurveyController::class);
 Route::get('survey/question/{id}',[ApisurveyController::class,'survey_question']);
-Route::put('users/s_score/{id}', [ProfileController::class, 'updateSurveyScore']);
 
 Route::middleware('auth:api')->group(function(){
 
+    Route::resource('users', ProfileController::class);
+    Route::put('users/s_score/{id}', [ProfileController::class, 'updateSurveyScore']);
 
 
 });
