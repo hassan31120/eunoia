@@ -12,7 +12,7 @@
     <div class="card">
         <div class="card-header">
 
-            <a href="{{route('amdin.diseases')}}" class="btn btn-primary float-right"> all diseases </a>
+            <a href="{{route('admin.diseases')}}" class="btn btn-primary float-right"> all diseases </a>
 
         </div>
         <!-- /.card-header -->

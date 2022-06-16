@@ -49,7 +49,7 @@ class AdminActivitiesController extends Controller
         $activity->score = $request->input('score');
         $activity->save();
 
-        return redirect(route('amdin.activities'))->with('message', 'Activity Added Successfully!');
+        return redirect(route('admin.activities'))->with('message', 'Activity Added Successfully!');
     }
 
     /**
@@ -105,6 +105,6 @@ class AdminActivitiesController extends Controller
     {
         $activity = Activity::find($id);
         $activity->delete();
-        return redirect(route('amdin.activities'))->with('message', 'Activity deleted successfully');
+        return redirect(route('admin.activities'))->with('message', 'Activity deleted successfully');
     }
 }

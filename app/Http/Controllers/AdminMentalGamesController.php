@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Disease;
+use App\Models\MentalGames;
 use Illuminate\Http\Request;
 
-class AdminDiseasesController extends Controller
+class AdminMentalGamesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class AdminDiseasesController extends Controller
      */
     public function index()
     {
-        $diseases = Disease::all();
-        return view('admin.diseases.index', compact('diseases'));
+        $games = MentalGames::all();
+        return view('admin.MentalGames.index', compact('games'));
     }
 
     /**
@@ -25,7 +25,7 @@ class AdminDiseasesController extends Controller
      */
     public function create()
     {
-        return view('admin.diseases.add');
+        return view('admin.MentalGames.add');
     }
 
     /**
@@ -37,17 +37,21 @@ class AdminDiseasesController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required',
-            'levels' => 'required'
+            'title' => 'required',
+            'description' => 'required',
+            'answer' => 'required'
         ]);
 
-        $disease = new Disease();
+        $game = new MentalGames();
 
-        $disease->name = $request->input('name');
-        $disease->levels = $request->input('levels');
-        $disease->save();
+        $game->title = $request->input('title');
+        $game->description = $request->input('description');
+        $game->answer = $request->input('answer');
+        $game->image = $request->input('image');
+        $game->link = $request->input('link');
+        $game->save();
 
-        return redirect(route('admin.diseases'))->with('message', 'Disease Added Successfully!');
+        return redirect(route('admin.games'))->with('message', 'Game Added Successfully!');
     }
 
     /**
@@ -69,8 +73,8 @@ class AdminDiseasesController extends Controller
      */
     public function edit($id)
     {
-        $disease = Disease::find($id);
-        return view('admin.diseases.edit', compact('disease'));
+        $game = MentalGames::find($id);
+        return view('admin.MentalGames.edit', compact('game'));
     }
 
     /**
@@ -82,14 +86,17 @@ class AdminDiseasesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $disease = Disease::find($id);
-        $request->validate([
-            'name' => 'required',
-            'levels' => 'required'
+        $game = MentalGames::find($id);
+
+        $this->validate($request, [
+            'title' => 'required',
+            'description' => 'required',
+            'answer' => 'required'
         ]);
-        $disease->update($request->all());
-        $disease->save();
-        return redirect()->back()->with('message', 'Disease Updated Successfully!');
+
+        $game->update($request->all());
+        $game->save();
+        return redirect()->back()->with('message', 'Game Updated Successfully!');
     }
 
     /**
@@ -100,8 +107,8 @@ class AdminDiseasesController extends Controller
      */
     public function destroy($id)
     {
-        $disease = Disease::find($id);
-        $disease->delete();
-        return redirect(route('admin.diseases'))->with('message', 'Disease deleted successfully');
+        $game = MentalGames::find($id);
+        $game->delete();
+        return redirect(route('admin.games'))->with('message', 'Game deleted successfully');
     }
 }

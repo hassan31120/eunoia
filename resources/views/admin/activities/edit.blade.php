@@ -12,7 +12,7 @@
     <div class="card">
         <div class="card-header">
 
-            <a href="{{route('amdin.activities')}}" class="btn btn-primary float-right"> All Activities </a>
+            <a href="{{route('admin.activities')}}" class="btn btn-primary float-right"> All Activities </a>
 
         </div>
         <!-- /.card-header -->

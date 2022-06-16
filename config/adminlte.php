@@ -282,6 +282,11 @@ return [
             'icon'        => 'fas fa-fw fa-check',
         ],
         [
+            'text'        => 'mental games',
+            'url'         => 'admin/games',
+            'icon'        => 'fas fa-fw fa-brain',
+        ],
+        [
             'text' => 'settings',
             'url'  => 'admin/settings/1',
             'icon' => 'fas fa-fw fa-cog',
