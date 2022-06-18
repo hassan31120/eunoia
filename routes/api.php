@@ -7,6 +7,7 @@ use App\Http\Controllers\API\ApisurveyController;
 use App\Http\Controllers\API\AppointmentsController;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\DiseaseController;
+use App\Http\Controllers\API\MentalGamesController;
 use App\Http\Controllers\API\ProfileController;
 
 use Illuminate\Http\Request;
@@ -39,6 +40,8 @@ Route::get('SplitTime', [AppointmentsController::class, 'SplitTime']);
 // Route::put('updatedata/{id}', [ProfileController::class, 'update']);
 
 Route::resource('diseases', DiseaseController::class);
+Route::resource('mentalgames', MentalGamesController::class);
+Route::get('randomgame', [MentalGamesController::class, 'randomGame']);
 Route::resource('activities', ActivitiesController::class);
 Route::resource('questions', ApiquestionController::class);
 Route::resource('answers', ApianswerController::class);
