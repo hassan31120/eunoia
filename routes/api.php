@@ -7,6 +7,7 @@ use App\Http\Controllers\API\ApisurveyController;
 use App\Http\Controllers\API\AppointmentsController;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\DiseaseController;
+use App\Http\Controllers\API\LifestyleController;
 use App\Http\Controllers\API\MentalGamesController;
 use App\Http\Controllers\API\ProfileController;
 
@@ -40,9 +41,19 @@ Route::get('SplitTime', [AppointmentsController::class, 'SplitTime']);
 // Route::put('updatedata/{id}', [ProfileController::class, 'update']);
 
 Route::resource('diseases', DiseaseController::class);
+
 Route::resource('mentalgames', MentalGamesController::class);
 Route::get('randomgame', [MentalGamesController::class, 'randomGame']);
+
 Route::resource('activities', ActivitiesController::class);
+
+Route::resource('lifestyles', LifestyleController::class);
+Route::put('lifestyle1/user/{id}', [LifestyleController::class, 'FirstLifestyle']);
+Route::put('lifestyle2/user/{id}', [LifestyleController::class, 'SecondLifestyle']);
+Route::put('lifestyle3/user/{id}', [LifestyleController::class, 'ThirdLifestyle']);
+Route::put('lifestyle4/user/{id}', [LifestyleController::class, 'FourthLifestyle']);
+Route::put('lifestyle5/user/{id}', [LifestyleController::class, 'FifthLifestyle']);
+
 Route::resource('questions', ApiquestionController::class);
 Route::resource('answers', ApianswerController::class);
 Route::resource('surveys', ApisurveyController::class);

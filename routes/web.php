@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminActivitiesController;
 use App\Http\Controllers\AdminDiseasesController;
 use App\Http\Controllers\AdminDoctorsController;
+use App\Http\Controllers\AdminLifestyleController;
 use App\Http\Controllers\AdminMentalGamesController;
 use App\Http\Controllers\AdminSettingsController;
 use App\Http\Controllers\AdminUsersController;
@@ -102,6 +103,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function(){
     Route::get('game/edit/{id}' ,[AdminMentalGamesController::class, 'edit'])->name('admin.game.edit');
     Route::put('game/update/{id}' ,[AdminMentalGamesController::class, 'update'])->name('admin.game.update');
     Route::get('game/destroy/{id}' ,[AdminMentalGamesController::class, 'destroy'])->name('admin.game.destroy');
+
+    //LifeStyle
+    Route::get('lifestyles', [AdminLifestyleController::class, 'index'])->name('admin.lifestyle');
 });
 
 

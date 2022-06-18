@@ -287,6 +287,11 @@ return [
             'icon'        => 'fas fa-fw fa-brain',
         ],
         [
+            'text'        => 'lifestyles',
+            'url'         => 'admin/lifestyles',
+            'icon'        => 'fas fa-fw fa-hand-holding-water',
+        ],
+        [
             'text' => 'settings',
             'url'  => 'admin/settings/1',
             'icon' => 'fas fa-fw fa-cog',

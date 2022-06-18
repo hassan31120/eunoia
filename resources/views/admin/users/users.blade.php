@@ -27,6 +27,7 @@
                             <th>Age</th>
                             <th>Gender</th>
                             <th>PhoneNo</th>
+                            <th>Disease</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -40,6 +41,13 @@
                                 <td>{{$user->age}}</td>
                                 <td>{{$user->gender}}</td>
                                 <td>{{$user->phone_no}}</td>
+                                <td>
+                                @isset($user->disease_id)
+                                    {{$user->diseases->name}}
+                                @else
+                                    not defined yet
+                                @endisset
+                                </td>
                                 <td>
                                     <a href="{{route('admin.user.edit', ['id' => $user->id])}}" class="btn btn-info"> <i class="fas fa-edit"></i> edit</a>
                                     <a href="{{route('admin.user.destroy', ['id' => $user->id])}}" style="margin-left: 5px" class="btn btn-danger"> <i class="fas fa-trash-alt"></i> delete</a>
