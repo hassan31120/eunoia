@@ -16,7 +16,7 @@ class DiseaseController extends BaseController
      */
     public function index()
     {
-        $diseases = Disease::all();
+        $diseases = Disease::where('levels', 'low')->get();
         return $this->sendResponse(DiseaseResource::collection($diseases), 'Diseases Receieved Successfully!');
     }
 

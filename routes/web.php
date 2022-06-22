@@ -9,6 +9,7 @@ use App\Http\Controllers\AdminSettingsController;
 use App\Http\Controllers\AdminUsersController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\AnswerController;
+use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\SurveyController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -107,5 +108,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function(){
     //LifeStyle
     Route::get('lifestyles', [AdminLifestyleController::class, 'index'])->name('admin.lifestyle');
 });
+
+
+Route::get('patients', [DoctorController::class, 'index4'])->name('patients');
+Route::get('patientdetails', [DoctorController::class, 'index3'])->name('patientdetails');
+Route::get('requests', [DoctorController::class, 'index'])->name('requests');
+Route::get('profile', [DoctorController::class, 'index2'])->name('profile');
+Route::get('appointments', [DoctorController::class, 'index1'])->name('appointments');
 
 
