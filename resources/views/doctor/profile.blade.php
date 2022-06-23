@@ -33,7 +33,7 @@
             @csrf
 
             <div class="form-group text-left">
-                <input type="text" value="DR/" name="name" id="name">
+                <input type="text" value="{{Auth::guard('webdoctor')->user()->name}}" name="name" id="name">
                 <img src="{{ asset('doctor/images/icon/vuesax-outline-edit-2.png') }}" alt="edit">
             </div>
 

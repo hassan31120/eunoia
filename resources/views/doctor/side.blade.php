@@ -29,7 +29,7 @@
         </li>
 
         <li data-aos="zoom-in-right" class="item">
-            <a href="{{route('logout')}}">
+            <a href="{{route('doctor.logout')}}">
                 <img src="{{ asset('doctor/images/icon/vuesax-outline-logout.png') }}" alt="">
                 <span>log out</span>
             </a>

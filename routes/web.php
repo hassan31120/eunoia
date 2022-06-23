@@ -9,6 +9,8 @@ use App\Http\Controllers\AdminSettingsController;
 use App\Http\Controllers\AdminUsersController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\AnswerController;
+use App\Http\Controllers\Auth\DoctorAuthController;
+use App\Http\Controllers\Auth\DoctorRegisterController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\SurveyController;
 use Illuminate\Support\Facades\Route;
@@ -109,11 +111,22 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function(){
     Route::get('lifestyles', [AdminLifestyleController::class, 'index'])->name('admin.lifestyle');
 });
 
+Route::group(['middleware' => 'isDoctor'], function(){
+    Route::get('patients', [DoctorController::class, 'index4'])->name('patients');
+    Route::get('patientdetails', [DoctorController::class, 'index3'])->name('patientdetails');
+    Route::get('requests', [DoctorController::class, 'index'])->name('requests');
+    Route::get('profile', [DoctorController::class, 'index2'])->name('profile');
+    Route::get('appointments', [DoctorController::class, 'index1'])->name('appointments');
+});
 
-Route::get('patients', [DoctorController::class, 'index4'])->name('patients');
-Route::get('patientdetails', [DoctorController::class, 'index3'])->name('patientdetails');
-Route::get('requests', [DoctorController::class, 'index'])->name('requests');
-Route::get('profile', [DoctorController::class, 'index2'])->name('profile');
-Route::get('appointments', [DoctorController::class, 'index1'])->name('appointments');
 
 
+
+
+Route::get('doctor', [DoctorAuthController::class, 'index'])->name('doctor.home')->middleware('auth::webdoctor');
+Route::get('doctor/login', [DoctorAuthController::class, 'login'])->name('doctor.login');
+Route::post('doctor/confirmlogin', [DoctorAuthController::class, 'confirmlogin'])->name('doctor.confirmlogin');
+Route::get('doctor/logout', [DoctorAuthController::class, 'logout'])->name('doctor.logout');
+
+Route::get('doctor/register', [DoctorRegisterController::class, 'register'])->name('doctor.register');
+Route::post('doctor/confirmregister', [DoctorRegisterController::class, 'confirmregister'])->name('doctor.confirmregister');
