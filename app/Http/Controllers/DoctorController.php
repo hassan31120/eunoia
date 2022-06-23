@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Doctor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,9 +19,10 @@ class DoctorController extends Controller
         return view('doctor.appointments');
     }
 
-    public function index2()
+    public function index2($id)
     {
-        return view('doctor.profile');
+        $doctor = Doctor::find($id);
+        return view('doctor.profile', compact('doctor'));
     }
 
     public function index3()
