@@ -35,28 +35,29 @@
                             <img src="{{ asset('doctor/images/Mental health-amico.png') }}" alt="patient_image_profile">
                         </div>
                         <div class="patient_info">
-                            <h3 class="name">Rola Ahmed</h3>
-                            <span class="job">Teacher</span>
+                            <h3 class="name">{{$user->name}}</h3>
+                            <span class="email">{{$user->email}}</span>
                         </div>
                     </div><!-- ./patient_profile -->
 
                     <div class="more_details">
                         <div>
-                            <h3>34 year</h3>
-                            <span>age</span>
+                            <h3>{{$user->age}}</h3>
+                            <span>Age</span>
                         </div>
                         <div>
-                            <h3>Bipolar</h3>
-                            <span>type</span>
+                            <h3>{{$user->diseases->name}}</h3>
+                            <span>Disease</span>
                         </div>
                         <div>
                             <h3>Smile</h3>
-                            <span>mood</span>
+                            <span>Mood</span>
                         </div>
                         <div>
-                            <h3>Dr. Asmaa</h3>
-                            <span>doctor</span>
+                            <h3>{{$user->diseases->survey_score}}</h3>
+                            <span>Survey Score</span>
                         </div>
+
                     </div><!-- ./more_details -->
 
 
@@ -171,7 +172,7 @@
                         <h2 class="title mb-4">note</h2>
                         <div class="text-wrapper">
                             <div class="note-text-area">
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt, minus consequatur eaque illo placeat minima vitae pariatur nostrum, aperiam inventore, impedit voluptate modi error quos provident quia id eligendi architecto. Aut provident explicabo, facere soluta voluptate doloribus nisi totam eveniet rerum laboriosam, aliquid quo ea. Illum corrupti et quae quaerat error esse, officia nam magnam harum labore laudantium mollitia sed vel illo facilis culpa! A nobis, molestias ullam ab laudantium iste similique magnam dolor repellat!
+                                {{$user->doctor_note}}
                              </div>
                         </div>
                         <button class="done">done</button>

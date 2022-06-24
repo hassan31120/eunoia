@@ -29,22 +29,37 @@
             <img class="w-100 h-100" src="{{ asset('doctor/images/Mental health-amico.png') }}" alt="profile-img">
         </div>
 
-        <form method="POST" action="#" class="m-auto text-center">
+        <form method="POST" action="{{route('webdoctor.update')}}" class="m-auto text-center">
             @csrf
+            @method('PUT')
 
             <div class="form-group text-left">
-                <input type="text" value="{{Auth::guard('webdoctor')->user()->name}}" name="name" id="name">
+                <input type="text" value="{{Auth::guard('webdoctor')->user()->name}}" name="name" id="name" >
                 <img src="{{ asset('doctor/images/icon/vuesax-outline-edit-2.png') }}" alt="edit">
+                @error('name')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
             </div>
 
             <div class="form-group text-left">
-                <input type="email" value="Email" name="email" id="email">
+                <input type="email" value="{{Auth::guard('webdoctor')->user()->email}}" name="email" id="email">
                 <img src="{{ asset('doctor/images/icon/vuesax-outline-edit-2.png') }}" alt="edit">
             </div>
 
             <div class="form-group text-left">
                 <input class="password" type="password" name="password" id="password">
                 <img class="showPassword" src="{{ asset('doctor/images/icon/vuesax-outline-eye-slash.png') }}" alt="slash">
+            </div>
+
+            <div class="form-group text-left">
+                <input id="phone_no" value="{{Auth::guard('webdoctor')->user()->phone_no}}" type="intger" class="form-control" name="phone_no"  required >
+                <img src="{{ asset('doctor/images/icon/vuesax-outline-edit-2.png') }}" alt="edit">
+            </div>
+            <div class="form-group text-left">
+                <input type="text" value="{{Auth::guard('webdoctor')->user()->address}}" name="name" id="name">
+                <img src="{{ asset('doctor/images/icon/vuesax-outline-edit-2.png') }}" alt="edit">
             </div>
 
             <button type="submit" class="btn">Save</button>

@@ -112,11 +112,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function(){
 });
 
 Route::group(['middleware' => 'isDoctor'], function(){
-    Route::get('patients', [DoctorController::class, 'index4'])->name('patients');
-    Route::get('patientdetails', [DoctorController::class, 'index3'])->name('patientdetails');
-    Route::get('requests', [DoctorController::class, 'index'])->name('requests');
-    Route::get('profile', [DoctorController::class, 'index2'])->name('profile');
-    Route::get('appointments', [DoctorController::class, 'index1'])->name('appointments');
+    Route::get('patients', [DoctorController::class, 'patients'])->name('patients');
+    Route::get('patientdetails/{id}', [DoctorController::class, 'patientdetails'])->name('patientdetails');
+    Route::get('requests', [DoctorController::class, 'requests'])->name('requests');
+    Route::get('profile', [DoctorController::class, 'profile'])->name('profile');
+    Route::get('appointments', [DoctorController::class, 'appointments'])->name('appointments');
+    Route::put('doctor/profile/update' ,[DoctorController::class, 'update'])->name('webdoctor.update');
+
 });
 
 

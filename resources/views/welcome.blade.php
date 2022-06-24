@@ -49,10 +49,10 @@
 
                         @guest
                             <div class="signup">
-                                <a href="{{route("register")}}" class=" btn-signup">Sign Up</a>
+                                <a href="{{route('doctor.register')}}" class=" btn-signup">Sign Up</a>
                             </div>
                             <div class="login">
-                                <a href="{{route("login")}}" class="btn-login">Login</a>
+                                <a href="{{route('doctor.login')}}" class="btn-login">Login</a>
                             </div>
                         @else
                             @if (Auth::user()->user_type == 2)
