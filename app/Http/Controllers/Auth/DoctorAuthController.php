@@ -23,12 +23,12 @@ class DoctorAuthController extends Controller
             return view('doctor.login');
         } else
 
-        return redirect(route('profile'));
+        return redirect(route('profile', Auth::guard('webdoctor')->user()->id));
     }
 
     public function confirmlogin(Request $request){
         if (Auth::guard('webdoctor')->attempt($request->only(['email', 'password']))) {
-            return redirect(route('profile'));
+            return redirect(route('profile', Auth::guard('webdoctor')->user()->id));
         }
         return redirect()->back()->with('error', 'falseeeee');
     }

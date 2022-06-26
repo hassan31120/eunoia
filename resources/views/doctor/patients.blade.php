@@ -29,29 +29,30 @@
         <section class="container-content col-md-8 col-9">
             <h1 class="title mb-5">Patients</h1>
 
-               <!-- <div class="row justify-content-between  align-items-center">./row -->
+                <div class="row justify-content-between  align-items-center">
+
                     @foreach ($users as $user)
 
-                    <div  class="col-sm-3 col-6 p-2" data-aos="fade-up" data-aos-duration="800">
 
+
+                    <div class="col-sm-6  col-12" data-aos="fade-up" data-aos-duration="800">
                         <div class="card-item" ><!-- card-item -->
-
-
                             <div class="info d-flex align-items-center">
                                 <div class="photo">
                                     <img src="{{ asset('doctor/images/logo regala (Y).png') }}" alt="">
                                 </div>
                                 <div class="title">
-                                    <h6><a href="{{route('patientdetails')}}">{{$user->name}}</a></h6>
+                                    <h6><a href="{{route('patientdetails', $user->id)}}"> {{$user->name}} </a></h6>
                                     <span>{{$user->email}}</span>
                                 </div>
                             </div>
                         </div><!-- ./card-item -->
-
                     </div>
 
-               <!-- </div>./row -->
-                @endforeach
+                    @endforeach
+
+                </div>
+
         </section>
 
         <!-- main section -->

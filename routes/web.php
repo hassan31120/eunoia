@@ -115,9 +115,9 @@ Route::group(['middleware' => 'isDoctor'], function(){
     Route::get('patients', [DoctorController::class, 'patients'])->name('patients');
     Route::get('patientdetails/{id}', [DoctorController::class, 'patientdetails'])->name('patientdetails');
     Route::get('requests', [DoctorController::class, 'requests'])->name('requests');
-    Route::get('profile', [DoctorController::class, 'profile'])->name('profile');
+    Route::get('profile/{id}', [DoctorController::class, 'profile'])->name('profile');
     Route::get('appointments', [DoctorController::class, 'appointments'])->name('appointments');
-    Route::put('doctor/profile/update' ,[DoctorController::class, 'update'])->name('webdoctor.update');
+    Route::put('doctor/profile/update/{id}' ,[DoctorController::class, 'update'])->name('webdoctor.update');
 
 });
 

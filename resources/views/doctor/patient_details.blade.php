@@ -42,20 +42,40 @@
 
                     <div class="more_details">
                         <div>
-                            <h3>{{$user->age}}</h3>
-                            <span>Age</span>
+                            <h3>Age</h3>
+                            <span>{{$user->age}}</span>
                         </div>
                         <div>
-                            <h3>{{$user->diseases->name}}</h3>
-                            <span>Disease</span>
+
+                            <h3>Disease</h3>
+
+                        @isset($user->diseases->name)
+                            <span>{{$user->diseases->name}}</span>
+
+                            @else
+
+                            <span>Not defined</span>
+                        @endisset
+
+
                         </div>
                         <div>
-                            <h3>Smile</h3>
-                            <span>Mood</span>
+                            <h3>Doctor</h3>
+                            <span>{{Auth::guard('webdoctor')->user()->name}}</span>
                         </div>
                         <div>
-                            <h3>{{$user->diseases->survey_score}}</h3>
-                            <span>Survey Score</span>
+
+                            <h3>Survey Score</h3>
+
+                        @isset($user->survey_score)
+                            <span>{{$user->survey_score}}</span>
+
+                            @else
+
+                            <span>Not defined</span>
+                        @endisset
+
+
                         </div>
 
                     </div><!-- ./more_details -->

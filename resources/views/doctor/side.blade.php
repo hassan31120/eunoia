@@ -15,7 +15,7 @@
             </a>
         </li>
         <li data-aos="zoom-in-right" class="item {{ Request::path() ==  'profile' ? 'active' : ''  }}">
-            <a href="{{route('profile')}}">
+            <a href="{{route('profile', Auth::guard('webdoctor')->user()->id)}}">
                 <img src="{{ asset('doctor/images/icon/vuesax-outline-frame.png') }}" alt="">
                 <span>profile</span>
             </a>
