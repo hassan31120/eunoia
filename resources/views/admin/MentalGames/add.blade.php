@@ -41,7 +41,7 @@
                     <label for="answer" class="col-md-4 col-form-label text-md-end">{{ __('Answer') }}</label>
 
                     <div class="col-md-6">
-                        <textarea name="answer" id="answer" class="form-control" cols="30" rows="10" required></textarea>
+                        <textarea name="answer" id="answer" class="form-control" cols="30" rows="10"></textarea>
                     </div>
                 </div>
 
@@ -49,7 +49,7 @@
                     <label for="image" class="col-md-4 col-form-label text-md-end">{{ __('Image') }}</label>
 
                     <div class="col-md-6">
-                        <input id="image" type="text" class="form-control" name="image" value="{{ old('image') }}" required autocomplete="image">
+                        <input id="image" type="text" class="form-control" name="image" value="{{ old('image') }}" autocomplete="image">
                     </div>
                 </div>
 
@@ -57,7 +57,7 @@
                     <label for="link" class="col-md-4 col-form-label text-md-end">{{ __('Link') }}</label>
 
                     <div class="col-md-6">
-                        <input id="link" type="text" class="form-control" name="link" value="{{ old('link') }}" required autocomplete="link">
+                        <input id="link" type="text" class="form-control" name="link" value="{{ old('link') }}" autocomplete="link">
                     </div>
                 </div>
 

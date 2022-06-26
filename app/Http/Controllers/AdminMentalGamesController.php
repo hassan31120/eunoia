@@ -38,8 +38,7 @@ class AdminMentalGamesController extends Controller
     {
         $this->validate($request, [
             'title' => 'required',
-            'description' => 'required',
-            'answer' => 'required'
+            'description' => 'required'
         ]);
 
         $game = new MentalGames();
@@ -90,8 +89,7 @@ class AdminMentalGamesController extends Controller
 
         $this->validate($request, [
             'title' => 'required',
-            'description' => 'required',
-            'answer' => 'required'
+            'description' => 'required'
         ]);
 
         $game->update($request->all());

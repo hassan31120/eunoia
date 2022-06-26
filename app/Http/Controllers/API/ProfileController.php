@@ -107,6 +107,24 @@ class ProfileController extends BaseController
         return $this->sendResponse(new UserResource($user), 'Survey Score Updated successfully!');
     }
 
+    public function result($id){
+
+        $user = User::find($id);
+
+        if ($user->survey_score <= 12 ) {
+            $result = 'low';
+        }elseif ($user->survey_score <= 24 && $user->survey_score > 12 ){
+            $result = 'half';
+        }elseif($user->survey_score > 24){
+            $result = 'high';
+        }else{
+            $result = 'There is error computing your score and definning your level, try again';
+        }
+
+        return response()->json($result, 200);
+
+    }
+
     /**
      * Remove the specified resource from storage.
      *

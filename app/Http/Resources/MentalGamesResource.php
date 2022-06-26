@@ -14,6 +14,15 @@ class MentalGamesResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        // return parent::toArray($request);
+
+        return [
+            'id' => $this->id,
+            'image' => $this->image,
+            'title' => $this->title,
+            'description' => $this->description,
+            'answer' => $this->answer,
+            'link' => $this->link
+        ];
     }
 }

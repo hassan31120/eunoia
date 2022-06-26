@@ -7,6 +7,7 @@ use App\Http\Controllers\API\BaseController;
 use App\Http\Resources\SurveyResource;
 use App\Http\Resources\QuestionResource;
 use Illuminate\Http\Request;
+use App\Models\Disease;
 
 class ApisurveyController extends BaseController
 {
@@ -43,12 +44,14 @@ class ApisurveyController extends BaseController
 
     public function survey_question($id)
     {
-        $survey = Survey::find($id);
+
+        $survey = Survey::where('disease_id', $id)->first();
+
         if (is_null($survey)) {
             return $this->sendError('Survey not found!');
         }
 
-        $questions = Question::where('survey_id',$id)->get();
+        $questions = Question::where('survey_id', $survey->id)->get();
         if (is_null($questions)) {
             return $this->sendError('Questions not found!');
         }
