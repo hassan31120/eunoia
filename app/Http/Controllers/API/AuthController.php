@@ -17,10 +17,10 @@ class AuthController extends BaseController
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => 'required',
-            'c_password' => 'required|same:password',
-            'phone_no' => 'required',
-            'gender' => 'required',
-            'age' => 'required',
+            'c_password' => 'required|same:password'
+            // 'phone_no' => 'required',
+            // 'gender' => 'required',
+            // 'age' => 'required',
         ]);
 
         if ($validator->fails()) {

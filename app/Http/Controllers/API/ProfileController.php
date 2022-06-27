@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Resources\UserResource;
+use App\Models\Disease;
+use App\Models\Question;
+use App\Models\Survey;
 use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends BaseController
@@ -111,11 +114,23 @@ class ProfileController extends BaseController
 
         $user = User::find($id);
 
-        if ($user->survey_score <= 12 ) {
+        $disease = Disease::where('id', $user->disease_id)->first();
+
+        $survey = Survey::where('disease_id', $disease->id)->first();
+
+        $questions = Question::where('survey_id', $survey->id)->get();
+
+        $max = count($questions)*3;
+
+        $low = ($max/100) * 35;
+        $mod = ($max/100) * 60;
+        $sev = $max;
+
+        if ($user->survey_score <= $low ) {
             $result = 'low';
-        }elseif ($user->survey_score <= 24 && $user->survey_score > 12 ){
+        }elseif ($user->survey_score <= $mod && $user->survey_score > $low ){
             $result = 'half';
-        }elseif($user->survey_score > 24){
+        }elseif($user->survey_score <= $sev && $user->survey_score > $mod ){
             $result = 'high';
         }else{
             $result = 'There is error computing your score and definning your level, try again';
