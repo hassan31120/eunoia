@@ -287,6 +287,16 @@ return [
             'icon'        => 'fas fa-fw fa-brain',
         ],
         [
+            'text'        => 'arts',
+            'url'         => 'admin/arts',
+            'icon'        => 'fas fa-fw fa-palette',
+        ],
+        [
+            'text'        => 'physical movements',
+            'url'         => 'admin/moves',
+            'icon'        => 'fas fa-fw fa-walking',
+        ],
+        [
             'text'        => 'lifestyles',
             'url'         => 'admin/lifestyles',
             'icon'        => 'fas fa-fw fa-hand-holding-water',

@@ -8,37 +8,36 @@
     <div class="card">
         <div class="card-header">
 
-            <h3 class="text-center">All Activities</h3>
+            <h3 class="text-center">All Moves</h3>
 
-            <a href="{{route('admin.activity.create')}}" class="btn btn-primary float-right"> Add Activity </a>
+            <a href="{{route('admin.move.create')}}" class="btn btn-primary float-right">Add Move </a>
 
         </div>
         <!-- /.card-header -->
         <div class="card-body">
             <?php $i = 1; ?>
             @include('partial.alerts')
-            @if (count($activities) > 0)
+            @if (count($moves) > 0)
                 <table class="table table-striped text-center">
                     <thead class="thead-dark">
                         <tr>
                             <th>#</th>
-                            <th>Name</th>
+                            <th>Video</th>
                             <th>Description</th>
-                            <th>Score</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($activities as $activity)
+                        @foreach ($moves as $move)
                             <tr>
-
                                 <td>{{$i++}}</td>
-                                <td>{{$activity->name}}</td>
-                                <td>{{$activity->description}}</td>
-                                <td>{{$activity->score}}</td>
                                 <td>
-                                    <a href="{{route('admin.activity.edit', $activity->id)}}" class="btn btn-info"> <i class="fas fa-edit"></i> edit</a>
-                                    <a href="{{route('admin.activity.destroy', $activity->id)}}" style="margin-left: 5px" class="btn btn-danger"> <i class="fas fa-trash-alt"></i> delete</a>
+                                    <a target="_blank" href="{{$move->link}}">{{$move->title}}</a>
+                                </td>
+                                <td>{{$move->description}}</td>
+                                <td>
+                                    <a href="{{route('admin.move.edit', $move->id)}}" class="btn btn-info"> <i class="fas fa-edit"></i> edit</a>
+                                    <a href="{{route('admin.move.destroy', $move->id)}}" style="margin-left: 5px" class="btn btn-danger"> <i class="fas fa-trash-alt"></i> delete</a>
                                 </td>
                             </tr>
                         @endforeach
@@ -46,7 +45,7 @@
                 </table>
             @else
             <div class="alert alert-danger" role="alert">
-                <h4 class="text-center">Sorry, There is no activities!</h4>
+                <h4 class="text-center">Sorry, There is no moves!</h4>
             </div>
             @endif
         </div>

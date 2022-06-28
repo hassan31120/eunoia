@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\AdminActivitiesController;
+use App\Http\Controllers\AdminArtController;
 use App\Http\Controllers\AdminDiseasesController;
 use App\Http\Controllers\AdminDoctorsController;
 use App\Http\Controllers\AdminLifestyleController;
 use App\Http\Controllers\AdminMentalGamesController;
+use App\Http\Controllers\AdminMovesController;
 use App\Http\Controllers\AdminSettingsController;
 use App\Http\Controllers\AdminUsersController;
 use App\Http\Controllers\QuestionController;
@@ -61,6 +63,22 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function(){
     Route::get('disease/edit/{id}' ,[AdminDiseasesController::class, 'edit'])->name('admin.disease.edit');
     Route::put('disease/update/{id}' ,[AdminDiseasesController::class, 'update'])->name('admin.disease.update');
     Route::get('disease/destroy/{id}' ,[AdminDiseasesController::class, 'destroy'])->name('admin.disease.destroy');
+
+    //arts
+    Route::get('arts', [AdminArtController::class, 'index'])->name('admin.arts');
+    Route::get('art/create' ,[AdminArtController::class, 'create'])->name('admin.art.create');
+    Route::post('art/store' ,[AdminArtController::class, 'store'])->name('admin.art.store');
+    Route::get('art/edit/{id}' ,[AdminArtController::class, 'edit'])->name('admin.art.edit');
+    Route::put('art/update/{id}' ,[AdminArtController::class, 'update'])->name('admin.art.update');
+    Route::get('art/destroy/{id}' ,[AdminArtController::class, 'destroy'])->name('admin.art.destroy');
+
+    //moves
+    Route::get('moves', [AdminMovesController::class, 'index'])->name('admin.moves');
+    Route::get('move/create' ,[AdminMovesController::class, 'create'])->name('admin.move.create');
+    Route::post('move/store' ,[AdminMovesController::class, 'store'])->name('admin.move.store');
+    Route::get('move/edit/{id}' ,[AdminMovesController::class, 'edit'])->name('admin.move.edit');
+    Route::put('move/update/{id}' ,[AdminMovesController::class, 'update'])->name('admin.move.update');
+    Route::get('move/destroy/{id}' ,[AdminMovesController::class, 'destroy'])->name('admin.move.destroy');
 
     //Activities
     Route::get('activities', [AdminActivitiesController::class, 'index'])->name('admin.activities');

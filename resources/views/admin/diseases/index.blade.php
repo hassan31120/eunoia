@@ -18,7 +18,7 @@
             <?php $i = 1; ?>
             @include('partial.alerts')
             @if (count($diseases) > 0)
-                <table class="table text-center">
+                <table class="table table-striped text-center">
                     <thead class="thead-dark">
                         <tr>
                             <th>#</th>

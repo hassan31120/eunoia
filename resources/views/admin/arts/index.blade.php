@@ -8,37 +8,34 @@
     <div class="card">
         <div class="card-header">
 
-            <h3 class="text-center">All Activities</h3>
+            <h3 class="text-center">All Arts</h3>
 
-            <a href="{{route('admin.activity.create')}}" class="btn btn-primary float-right"> Add Activity </a>
+            <a href="{{route('admin.art.create')}}" class="btn btn-primary float-right">Add Art </a>
 
         </div>
         <!-- /.card-header -->
         <div class="card-body">
             <?php $i = 1; ?>
             @include('partial.alerts')
-            @if (count($activities) > 0)
+            @if (count($arts) > 0)
                 <table class="table table-striped text-center">
                     <thead class="thead-dark">
                         <tr>
                             <th>#</th>
-                            <th>Name</th>
-                            <th>Description</th>
-                            <th>Score</th>
+                            <th>Video</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($activities as $activity)
+                        @foreach ($arts as $art)
                             <tr>
-
                                 <td>{{$i++}}</td>
-                                <td>{{$activity->name}}</td>
-                                <td>{{$activity->description}}</td>
-                                <td>{{$activity->score}}</td>
                                 <td>
-                                    <a href="{{route('admin.activity.edit', $activity->id)}}" class="btn btn-info"> <i class="fas fa-edit"></i> edit</a>
-                                    <a href="{{route('admin.activity.destroy', $activity->id)}}" style="margin-left: 5px" class="btn btn-danger"> <i class="fas fa-trash-alt"></i> delete</a>
+                                    <a target="_blank" href="{{$art->link}}">{{$art->title}}</a>
+                                </td>
+                                <td>
+                                    <a href="{{route('admin.art.edit', $art->id)}}" class="btn btn-info"> <i class="fas fa-edit"></i> edit</a>
+                                    <a href="{{route('admin.art.destroy', $art->id)}}" style="margin-left: 5px" class="btn btn-danger"> <i class="fas fa-trash-alt"></i> delete</a>
                                 </td>
                             </tr>
                         @endforeach
@@ -46,7 +43,7 @@
                 </table>
             @else
             <div class="alert alert-danger" role="alert">
-                <h4 class="text-center">Sorry, There is no activities!</h4>
+                <h4 class="text-center">Sorry, There is no arts!</h4>
             </div>
             @endif
         </div>
