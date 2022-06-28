@@ -113,25 +113,28 @@ class ProfileController extends BaseController
     public function result($id){
 
         $user = User::find($id);
-
         $disease = Disease::where('id', $user->disease_id)->first();
-
         $survey = Survey::where('disease_id', $disease->id)->first();
-
         $questions = Question::where('survey_id', $survey->id)->get();
 
         $max = count($questions)*3;
 
-        $low = ($max/100) * 35;
+        $no = ($max/100) * 20;
+        $low = ($max/100) * 40;
         $mod = ($max/100) * 60;
-        $sev = $max;
+        $sev = ($max/100) * 80;
+        $ex = $max;
 
-        if ($user->survey_score <= $low ) {
-            $result = 'low';
+        if ($user->survey_score <= $no ) {
+            $result = 'subclinical';
+        }elseif ($user->survey_score <= $low && $user->survey_score > $no ){
+            $result = 'Mild';
         }elseif ($user->survey_score <= $mod && $user->survey_score > $low ){
-            $result = 'half';
-        }elseif($user->survey_score <= $sev && $user->survey_score > $mod ){
-            $result = 'high';
+            $result = 'Moderate';
+        }elseif ($user->survey_score <= $sev && $user->survey_score > $mod ){
+            $result = 'Severe';
+        }elseif($user->survey_score <= $ex && $user->survey_score > $sev ){
+            $result = 'Extreme';
         }else{
             $result = 'There is error computing your score and definning your level, try again';
         }

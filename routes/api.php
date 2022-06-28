@@ -5,10 +5,12 @@ use App\Http\Controllers\API\ApianswerController;
 use App\Http\Controllers\API\ApiquestionController;
 use App\Http\Controllers\API\ApisurveyController;
 use App\Http\Controllers\API\AppointmentsController;
+use App\Http\Controllers\API\ArtsController;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\DiseaseController;
 use App\Http\Controllers\API\LifestyleController;
 use App\Http\Controllers\API\MentalGamesController;
+use App\Http\Controllers\API\movesController;
 use App\Http\Controllers\API\ProfileController;
 
 use Illuminate\Http\Request;
@@ -46,6 +48,8 @@ Route::resource('mentalgames', MentalGamesController::class);
 Route::get('randomgame', [MentalGamesController::class, 'randomGame']);
 
 Route::resource('activities', ActivitiesController::class);
+Route::resource('arts', ArtsController::class);
+Route::resource('moves', movesController::class);
 
 Route::resource('lifestyles', LifestyleController::class);
 Route::put('lifestyle1/user/{id}', [LifestyleController::class, 'FirstLifestyle']);
