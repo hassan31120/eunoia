@@ -15,27 +15,6 @@ use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends BaseController
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-
     public function show($id)
     {
         $user = User::find($id);
@@ -140,17 +119,5 @@ class ProfileController extends BaseController
         }
 
         return response()->json($result, 200);
-
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }

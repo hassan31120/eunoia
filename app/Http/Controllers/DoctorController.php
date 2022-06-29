@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Validator;
 
 class DoctorController extends Controller
 {
-
     public function requests()
     {
         $appointments = Appointment::where('status', 'pending')->where('doctor_id', Auth::guard('webdoctor')->user()->id)->get();

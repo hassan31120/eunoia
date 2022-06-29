@@ -11,25 +11,11 @@ use App\Models\Disease;
 
 class ApisurveyController extends BaseController
 {
-
     public function index()
     {
         $surveys = Survey::all();
         return $this->sendResponse(SurveyResource::collection($surveys), 'Surveys Receieved Successfully!');
     }
-
-
-    public function create()
-    {
-        //
-    }
-
-
-    public function store(Request $request)
-    {
-        //
-    }
-
 
     public function show($id)
     {
@@ -58,23 +44,5 @@ class ApisurveyController extends BaseController
 
         return $this->sendResponse(new QuestionResource($questions), 'Questions Found Successfully!');
 
-    }
-
-
-    public function edit($id)
-    {
-        //
-    }
-
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-
-    public function destroy($id)
-    {
-        //
     }
 }

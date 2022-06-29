@@ -8,25 +8,11 @@ use Illuminate\Http\Request;
 
 class ApiquestionController extends BaseController
 {
-
     public function index()
     {
         $questions = Question::all();
         return $this->sendResponse(QuestionResource::collection($questions), 'Questions Receieved Successfully!');
     }
-
-
-    public function create()
-    {
-        //
-    }
-
-
-    public function store(Request $request)
-    {
-        //
-    }
-
 
     public function show($id)
     {
@@ -37,23 +23,5 @@ class ApiquestionController extends BaseController
         }
 
         return $this->sendResponse(new QuestionResource($question), 'Question Found Successfully!');
-    }
-
-
-    public function edit($id)
-    {
-        //
-    }
-
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-
-    public function destroy($id)
-    {
-        //
     }
 }
