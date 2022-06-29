@@ -103,8 +103,8 @@
                                     <img src="{{ asset('doctor/images/icon/rating-5.png') }}" alt="">
                                 </div>
                                 <div class="desc">
-                                    <span>note</span>
-                                    <h3>Lorem ipsum...</h3>
+                                    <h3>note</h3>
+                                    <h3></h3>
                                 </div>
                             </div>
                             <div class="rating">73%</div>
@@ -131,10 +131,10 @@
                                 </div>
                                 <div class="desc">
                                     <span>Lifestyle</span>
-                                    <h3>Lorem ipsum...</h3>
+                                    <h3>Healthy</h3>
                                 </div>
                             </div>
-                            <div class="rating">23%</div>
+                            <div class="rating">83%</div>
                         </div>
 
                         <div class="cart_item">
@@ -158,7 +158,7 @@
                                 </div>
                                 <div class="desc">
                                     <span>Breathing</span>
-                                    <h3>Lorem ipsum...</h3>
+                                    <h3>Normal</h3>
                                 </div>
                             </div>
                             <div class="rating">88%</div>
