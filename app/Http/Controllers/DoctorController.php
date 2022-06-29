@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Appointment;
 use App\Models\Doctor;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -14,12 +16,20 @@ class DoctorController extends Controller
 
     public function requests()
     {
-        return view('doctor.requests');
+        $appointments = Appointment::where('status', 'pending')->get();
+        return view('doctor.requests', compact('appointments'));
     }
 
     public function appointments()
     {
-        return view('doctor.appointments');
+        $appointments = Appointment::where('status', 'accepted')->get();
+        return view('doctor.appointments', compact('appointments'));
+    }
+
+    public function changeStatus(Request $request , $id)
+    {
+        Appointment::where('id',$id)->update(['status'=>$request->status]);
+        return back();
     }
 
     public function profile($id)

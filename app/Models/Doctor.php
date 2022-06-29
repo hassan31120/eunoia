@@ -19,4 +19,8 @@ class Doctor extends Authenticatable
     public function users(){
         return $this->hasMany('App\Models\User');
     }
+
+    public function appointments(){
+        return $this->hasMany('App\Models\Appointment');
+    }
 }

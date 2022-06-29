@@ -28,6 +28,9 @@
         <section class="container-content col-md-8 col-9">
             <h1 class="title mb-5">Requests</h1>
                 <div class="row justify-content-start  align-items-center">
+
+                    @foreach ($appointments as $appointment)
+
                     <div class="col-sm-6 col-xl-4 col-md-6  col-12" data-aos="fade-up" data-aos-duration="800">
                         <div class="card-item"><!-- card-item -->
                             <div class="info d-flex align-items-center">
@@ -35,22 +38,33 @@
                                     <img src="{{ asset('doctor/images/logo regala (Y).png') }}" alt="">
                                 </div>
                                 <div class="title">
-                                    <h6>abdo ibrahem</h6>
-                                    <span>Teacher</span>
+                                    <h6>{{$appointment->Users->name}}</h6>
+                                    <span>{{$appointment->Users->email}}</span>
                                 </div>
                             </div>
 
                             <div class="time_date">
-                                <span class="time mr-5">12:30 pm</span>
-                                <span class="date">25/6/2022</span>
+                                <span class="time mr-5">{{$appointment->time}}</span>
+                                <span class="date">{{$appointment->date}}</span>
                             </div>
 
-                            <div class="controll">
-                                <span class="tick-circle mr-4 "></span>
-                                <span class="close-circle"></span>
+                            <div class="control">
+
+                                <form action="{{ route('appointment.status', ['id'=>$appointment->id]) }}" method="POST">
+                                    @csrf
+                                    <span class="tick-circle mr-5">
+                                        <input type="submit" name="status" value="accepted" class="btn btn-primary btn-sm">
+                                    </span>
+                                    <span class="close-circle">
+                                        <input type="submit" name="status" value="rejected" class="btn btn-danger btn-sm">
+                                    </span>
+                                </form>
+
                             </div>
                         </div><!-- ./card-item -->
                     </div>
+
+                    @endforeach
 
                 </div><!-- ./row -->
         </section>

@@ -69,4 +69,8 @@ class User extends Authenticatable
     public function lifestyles(){
         return $this->has('App\Models\Lifestyle');
     }
+
+    public function appointments(){
+        return $this->hasMany('App\Models\Appointment');
+    }
 }

@@ -19,11 +19,11 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('doctor_id');
             $table->foreign('doctor_id')->references('id')->on('doctors');
-            $table->date('date');
-            $table->time('time_interval');
+            $table->string('date');
+            $table->string('time');
             $table->string('day');
-            $table->integer('tracking_score');
-            $table->string('status');
+            $table->integer('tracking_score')->nullable();
+            $table->string('status')->default('pending');
             $table->timestamps();
         });
     }

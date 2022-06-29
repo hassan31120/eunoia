@@ -28,53 +28,24 @@
         <section class="container-content col-md-8 col-9">
             <h1 class="title mb-5">My Appointments</h1>
                 <div class="row justify-content-start align-items-center">
+
+
+
                     <div class="time_table_wrapper">
+                        @foreach ($appointments as $appointment)
 
                         <div class="table_item">
-                            <div class="table_date" >16/6</div>
+                            <div class="table_date" >{{$appointment->date}}</div>
                             <div class="table_content">
                                 <div class="patient" >
-                                    <h3 class="patient_name">patient : rola ahmed</h3>
-                                    <span class="patient_date">date : 05:20mp</span>
-                                </div>
-                                <div class="patient">
-                                    <h3 class="patient_name">patient :ahmed ali</h3>
-                                    <span class="patient_date">date : 05:20mp</span>
+                                    <h3 class="patient_name">patient : {{$appointment->users->name}}</h3>
+                                    <span class="patient_date">Time : From: {{$appointment->time}} -->  to: {{$appointment->time}}</span>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="table_item">
-                            <div class="table_date" >16/6</div>
-                            <div class="table_content">
-                                <div class="patient" >
-                                    <h3 class="patient_name">patient : rola ahmed</h3>
-                                    <span class="patient_date">date : 05:20mp</span>
-                                </div>
-                                <div class="patient">
-                                    <h3 class="patient_name">patient :ahmed ali</h3>
-                                    <span class="patient_date">date : 05:20mp</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="table_item">
-                            <div class="table_date" >16/6</div>
-                            <div class="table_content">
-                                <div class="patient" >
-                                    <h3 class="patient_name">patient : rola ahmed</h3>
-                                    <span class="patient_date">date : 05:20mp</span>
-                                </div>
-                                <div class="patient">
-                                    <h3 class="patient_name">patient :ahmed ali</h3>
-                                    <span class="patient_date">date : 05:20mp</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        
-
+                        @endforeach
                     </div><!-- ./time_table_wrapper -->
+
                 </div><!-- ./row -->
         </section>
         <!-- main section -->

@@ -21,8 +21,7 @@ class MentalGamesResource extends JsonResource
             'image' => $this->image,
             'title' => $this->title,
             'description' => $this->description,
-            'answer' => $this->answer,
-            'link' => $this->link
+            'answer' => $this->answer
         ];
     }
 }

@@ -136,6 +136,7 @@ Route::group(['middleware' => 'isDoctor'], function(){
     Route::get('profile/{id}', [DoctorController::class, 'profile'])->name('profile');
     Route::get('appointments', [DoctorController::class, 'appointments'])->name('appointments');
     Route::put('doctor/profile/update/{id}' ,[DoctorController::class, 'update'])->name('webdoctor.update');
+    Route::post('/appointment/status/{id}', [DoctorController::class, 'changeStatus'])->name('appointment.status');
 
 });
 
