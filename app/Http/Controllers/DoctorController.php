@@ -25,19 +25,19 @@ class DoctorController extends Controller
         return view('doctor.appointments', compact('appointments'));
     }
 
-    public function changeStatus(Request $request , $id)
+    public function changeStatus(Request $request, $id)
     {
-        Appointment::where('id',$id)->update(['status'=>$request->status]);
+        Appointment::where('id', $id)->update(['status' => $request->status]);
         return back();
     }
 
     public function profile($id)
     {
         if ($id == Auth::guard('webdoctor')->user()->id) {
-            $doctor= Doctor::find($id);
+            $doctor = Doctor::find($id);
             return view('doctor.profile', compact('doctor'));
         } else
-        return "error 404";
+            return "error 404";
     }
     public function update(Request $request, $id)
     {
@@ -67,18 +67,19 @@ class DoctorController extends Controller
         $doctor->address = $input['address'];
         $doctor->save();
         return redirect()->back()->with('message', 'Doctor updated successfully');
-
     }
 
     public function patientdetails($id)
     {
-            $user = User::find($id);
-            return view('doctor.patient_details',compact('user'));
+        $user = User::find($id);
+        $appointments = Appointment::where('status', 'accepted')->where('user_id', $id)->get();
+        return view('doctor.patient_details', compact('user', 'appointments'));
     }
 
     public function patients()
-    { $id =  Auth::guard('webdoctor')->user()->id;
-        $users = User::where('doctor_id',$id)->get();
-        return view('doctor.patients',compact('users'));
+    {
+        $id =  Auth::guard('webdoctor')->user()->id;
+        $users = User::where('doctor_id', $id)->get();
+        return view('doctor.patients', compact('users'));
     }
 }

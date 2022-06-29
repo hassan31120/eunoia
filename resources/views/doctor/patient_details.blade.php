@@ -167,13 +167,17 @@
 
                      </div><!-- ./patient_details_wrapper -->
 
+                     @foreach ($appointments as $appointment)
+
+
+
                      <div class="next_appointment">
                         <h2 class="title mb-4">Next appointment</h2>
                         <div class="d-flex next-parent ">
                             <div class="next_appointment_item">
                                 <span class="date date-day">day</span>
                                 <div class="date-box">
-                                    <span>12/6/2022</span>
+                                    <span>{{$appointment->day}}</span>
                                     <span><img src="images/icon/vuesax-outline-calendar-2.png" alt=""></span>
                                 </div>
                             </div>
@@ -181,12 +185,14 @@
                             <div class="next_appointment_item">
                                 <span class="date date-hour">Hour</span>
                                 <div class="date-box">
-                                    <span>05:36 PM</span>
+                                    <span>{{$appointment->time}}</span>
                                     <span><img src="images/icon/vuesax-outline-clock.png" alt=""></span>
                                 </div>
                             </div>
                         </div>
                      </div><!-- ./next_appointment -->
+
+                     @endforeach
 
                      <div class="nots">
                         <h2 class="title mb-4">note</h2>
