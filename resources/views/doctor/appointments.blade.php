@@ -32,18 +32,21 @@
 
 
                     <div class="time_table_wrapper">
-                        @foreach ($appointments as $appointment)
 
+                        @foreach ($appointments as $appointment)
                         <div class="table_item">
                             <div class="table_date" >{{$appointment->date}}</div>
                             <div class="table_content">
                                 <div class="patient" >
                                     <h3 class="patient_name">patient : {{$appointment->users->name}}</h3>
-                                    <span class="patient_date">Time : From: {{$appointment->time}} -->  to: {{$appointment->time}}</span>
+                                    <span class="patient_date">Email : {{$appointment->users->email}}</span> <br> <br>
+                                    <span class="patient_date">Time : {{$appointment->time}}</span> <br>
+                                    <span class="patient_date">Session duration : 1 Hour</span>
                                 </div>
                             </div>
                         </div>
                         @endforeach
+
                     </div><!-- ./time_table_wrapper -->
 
                 </div><!-- ./row -->

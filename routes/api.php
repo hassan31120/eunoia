@@ -52,13 +52,10 @@ Route::resource('arts', ArtsController::class);
 Route::resource('moves', movesController::class);
 
 Route::resource('lifestyles', LifestyleController::class);
-Route::put('lifestyle1/user/{id}', [LifestyleController::class, 'FirstLifestyle']);
-Route::put('lifestyle2/user/{id}', [LifestyleController::class, 'SecondLifestyle']);
-Route::put('lifestyle3/user/{id}', [LifestyleController::class, 'ThirdLifestyle']);
-Route::put('lifestyle4/user/{id}', [LifestyleController::class, 'FourthLifestyle']);
-Route::put('lifestyle5/user/{id}', [LifestyleController::class, 'FifthLifestyle']);
+Route::put('user/temp/{id}', [LifestyleController::class, 'temp']);
+Route::put('user/water/{id}', [LifestyleController::class, 'water']);
+Route::put('user/sleep/{id}', [LifestyleController::class, 'sleep']);
 
-Route::resource('questions', ApiquestionController::class);
 Route::resource('answers', ApianswerController::class);
 Route::resource('surveys', ApisurveyController::class);
 Route::get('survey/question/{id}',[ApisurveyController::class,'survey_question']);

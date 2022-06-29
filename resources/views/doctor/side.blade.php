@@ -14,10 +14,10 @@
                 <span>Patients</span>
             </a>
         </li>
-        <li data-aos="zoom-in-right" class="item {{ Request::path() ==  'profile' ? 'active' : ''  }}">
+        <li data-aos="zoom-in-right" class="item {{ Request::path() ==  'profile/2' ? 'active' : ''  }}">
             <a href="{{route('profile', Auth::guard('webdoctor')->user()->id)}}">
                 <img src="{{ asset('doctor/images/icon/vuesax-outline-frame.png') }}" alt="">
-                <span>profile</span>
+                <span>{{Auth::guard('webdoctor')->user()->name}}</span>
             </a>
         </li>
 

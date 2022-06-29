@@ -94,7 +94,7 @@ class LifestyleController extends BaseController
         //
     }
 
-    public function FirstLifestyle(Request $request, $id)
+    public function temp(Request $request, $id)
     {
         $input = $request->all();
 
@@ -103,7 +103,7 @@ class LifestyleController extends BaseController
         $lifestyle = Lifestyle::where('user_id', $user->id)->first();
 
         $validator = Validator::make($input, [
-            'test1' => 'required',
+            'temp' => 'required |integer',
         ]);
 
         if ($validator->fails()) {
@@ -111,19 +111,19 @@ class LifestyleController extends BaseController
         }
 
         if (isset($lifestyle)) {
-            $lifestyle->test1 = $input['test1'];
+            $lifestyle->temp = $input['temp'];
             $lifestyle->save();
         } else{
             $lifestyle = new Lifestyle();
             $lifestyle->user_id = $user->id;
-            $lifestyle->test1 = $input['test1'];
+            $lifestyle->temp = $input['temp'];
             $lifestyle->save();
         }
         return $this->sendResponse(new LifestyleResource($lifestyle), 'Lifestyle Updated successfully!');
 
     }
 
-    public function SecondLifestyle(Request $request, $id)
+    public function water(Request $request, $id)
     {
         $input = $request->all();
 
@@ -132,7 +132,7 @@ class LifestyleController extends BaseController
         $lifestyle = Lifestyle::where('user_id', $user->id)->first();
 
         $validator = Validator::make($input, [
-            'test2' => 'required',
+            'water' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -140,19 +140,19 @@ class LifestyleController extends BaseController
         }
 
         if (isset($lifestyle)) {
-            $lifestyle->test2 = $input['test2'];
+            $lifestyle->water = $input['water'];
             $lifestyle->save();
         } else{
             $lifestyle = new Lifestyle();
             $lifestyle->user_id = $user->id;
-            $lifestyle->test2 = $input['test2'];
+            $lifestyle->water = $input['water'];
             $lifestyle->save();
         }
         return $this->sendResponse(new LifestyleResource($lifestyle), 'Lifestyle Updated successfully!');
 
     }
 
-    public function ThirdLifestyle(Request $request, $id)
+    public function sleep(Request $request, $id)
     {
         $input = $request->all();
 
@@ -161,7 +161,7 @@ class LifestyleController extends BaseController
         $lifestyle = Lifestyle::where('user_id', $user->id)->first();
 
         $validator = Validator::make($input, [
-            'test3' => 'required',
+            'sleep' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -169,75 +169,16 @@ class LifestyleController extends BaseController
         }
 
         if (isset($lifestyle)) {
-            $lifestyle->test3 = $input['test3'];
+            $lifestyle->sleep = $input['sleep'];
             $lifestyle->save();
         } else{
             $lifestyle = new Lifestyle();
             $lifestyle->user_id = $user->id;
-            $lifestyle->test3 = $input['test3'];
+            $lifestyle->sleep = $input['sleep'];
             $lifestyle->save();
         }
         return $this->sendResponse(new LifestyleResource($lifestyle), 'Lifestyle Updated successfully!');
 
     }
 
-    public function FourthLifestyle(Request $request, $id)
-    {
-        $input = $request->all();
-
-        $user = User::find($id);
-
-        $lifestyle = Lifestyle::where('user_id', $user->id)->first();
-
-        $validator = Validator::make($input, [
-            'test4' => 'required',
-        ]);
-
-        if ($validator->fails()) {
-            return $this->sendError('Validation Error !', $validator->errors());
-        }
-
-        if (isset($lifestyle)) {
-            $lifestyle->test4 = $input['test4'];
-            $lifestyle->save();
-        } else{
-            $lifestyle = new Lifestyle();
-            $lifestyle->user_id = $user->id;
-            $lifestyle->test4 = $input['test4'];
-            $lifestyle->save();
-        }
-        return $this->sendResponse(new LifestyleResource($lifestyle), 'Lifestyle Updated successfully!');
-
-
-
-    }
-
-    public function FifthLifestyle(Request $request, $id)
-    {
-        $input = $request->all();
-
-        $user = User::find($id);
-
-        $lifestyle = Lifestyle::where('user_id', $user->id)->first();
-
-        $validator = Validator::make($input, [
-            'test5' => 'required',
-        ]);
-
-        if ($validator->fails()) {
-            return $this->sendError('Validation Error !', $validator->errors());
-        }
-
-        if (isset($lifestyle)) {
-            $lifestyle->test5 = $input['test5'];
-            $lifestyle->save();
-        } else{
-            $lifestyle = new Lifestyle();
-            $lifestyle->user_id = $user->id;
-            $lifestyle->test5 = $input['test5'];
-            $lifestyle->save();
-        }
-        return $this->sendResponse(new LifestyleResource($lifestyle), 'Lifestyle Updated successfully!');
-
-    }
 }

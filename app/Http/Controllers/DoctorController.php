@@ -16,13 +16,13 @@ class DoctorController extends Controller
 
     public function requests()
     {
-        $appointments = Appointment::where('status', 'pending')->get();
+        $appointments = Appointment::where('status', 'pending')->where('doctor_id', Auth::guard('webdoctor')->user()->id)->get();
         return view('doctor.requests', compact('appointments'));
     }
 
     public function appointments()
     {
-        $appointments = Appointment::where('status', 'accepted')->get();
+        $appointments = Appointment::where('status', 'accepted')->where('doctor_id', Auth::guard('webdoctor')->user()->id)->get();
         return view('doctor.appointments', compact('appointments'));
     }
 
