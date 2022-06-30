@@ -4,6 +4,7 @@ use App\Http\Controllers\API\ActivitiesController;
 use App\Http\Controllers\API\ApianswerController;
 use App\Http\Controllers\API\ApiquestionController;
 use App\Http\Controllers\API\ApisurveyController;
+use App\Http\Controllers\API\AppointmentController;
 use App\Http\Controllers\API\AppointmentsController;
 use App\Http\Controllers\API\ArtsController;
 use App\Http\Controllers\API\AuthController;
@@ -56,17 +57,21 @@ Route::put('user/temp/{id}', [LifestyleController::class, 'temp']);
 Route::put('user/water/{id}', [LifestyleController::class, 'water']);
 Route::put('user/sleep/{id}', [LifestyleController::class, 'sleep']);
 
+
+
+
+
 Route::resource('answers', ApianswerController::class);
 Route::resource('surveys', ApisurveyController::class);
 Route::get('survey/question/{id}',[ApisurveyController::class,'survey_question']);
 
 Route::get('user/level/{id}', [ProfileController::class, 'result']);
 
-    Route::resource('users', ProfileController::class);
-    Route::put('users/s_score/{id}', [ProfileController::class, 'updateSurveyScore']);
+Route::resource('users', ProfileController::class);
+Route::put('users/s_score/{id}', [ProfileController::class, 'updateSurveyScore']);
 
 Route::middleware('auth:api')->group(function(){
-
+    Route::post('appointment/book', [AppointmentController::class, 'store']);
 });
 
 

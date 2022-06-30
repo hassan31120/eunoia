@@ -57,7 +57,7 @@
                         @else
                             @if (Auth::user()->user_type == 2)
                                 <div class="signup">
-                                    <a href="{{route("admin")}}" class=" btn-signup">Dashboard</a>
+                                    <a href="{{route("admin.users")}}" class=" btn-signup">Dashboard</a>
                                 </div>
                             @endif
 
