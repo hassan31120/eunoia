@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class AdminSettingsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index($id){
         $settings = Setting::find($id);
         return view('admin.settings.index', compact('settings'));
@@ -25,7 +30,5 @@ class AdminSettingsController extends Controller
         $settings->update($request->all());
         $settings->save();
         return redirect()->back()->with('message', 'Settings updated successfully');
-
     }
-
 }

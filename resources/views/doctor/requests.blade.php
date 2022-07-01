@@ -53,10 +53,10 @@
                                 <form action="{{ route('appointment.status', ['id'=>$appointment->id]) }}" method="POST">
                                     @csrf
                                     <span class="tick-circle mr-5">
-                                        <input type="submit" name="status" value="accepted" class="btn btn-primary btn-sm">
+                                        <input type="submit" name="status" value="accept" class="btn btn-primary">
                                     </span>
                                     <span class="close-circle">
-                                        <input type="submit" name="status" value="rejected" class="btn btn-danger btn-sm">
+                                        <input type="submit" name="status" value="reject" class="btn btn-danger float-right">
                                     </span>
                                 </form>
 

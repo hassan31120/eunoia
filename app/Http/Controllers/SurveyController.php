@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Survey;
 use App\Models\Question;
-use App\Http\Controllers\API\BaseController as BaseController ;
 use App\Http\Resources\SurveyResource as SurveyResource;
 use App\Models\Disease;
 
@@ -55,6 +54,12 @@ class SurveyController extends Controller
 
     }
 
+    public function survey_question($id)
+    {
+        $survey = Survey::find($id);
+        $questions = Question::where('survey_id',$id)->get();
+        return view('admin.surveys.questions',compact('questions' ,'survey'));
+    }
 
     public function edit($id)
     {
@@ -83,14 +88,8 @@ class SurveyController extends Controller
         return redirect(route('surveys'))->with('message', 'deleted successfully');
     }
 
-    public function survey_question($id)
-    {
-        $survey = Survey::find($id);
-        $questions = Question::where('survey_id',$id)->get();
-        return view('admin.surveys.questions',compact('questions' ,'survey'));
-    }
 
-    }
+}
 
 
 

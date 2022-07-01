@@ -165,8 +165,8 @@ aside .menu {
 .nots .text-wrapper {
     overflow-x: auto;
 }
-.nots .note-text-area {
-    width: 480px;
+.nots form textarea {
+    width: 680px;
     background-color: var(--bgColor);
     color: var(--secondColor);
     font: 17px;

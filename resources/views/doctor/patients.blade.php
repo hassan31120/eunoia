@@ -33,8 +33,6 @@
 
                     @foreach ($users as $user)
 
-
-
                     <div class="col-sm-6  col-12" data-aos="fade-up" data-aos-duration="800">
                         <div class="card-item" ><!-- card-item -->
                             <div class="info d-flex align-items-center">

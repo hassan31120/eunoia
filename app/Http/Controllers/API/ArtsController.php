@@ -6,48 +6,17 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\API\BaseController;
 use App\Http\Resources\ArtsResource;
 use App\Models\Art;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ArtsController extends BaseController
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $arts = Art::all();
         return $this->sendResponse(ArtsResource::collection($arts), 'Arts Receieved Successfully!');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         $art = Art::find($id);
@@ -59,37 +28,17 @@ class ArtsController extends BaseController
         return $this->sendResponse(new ArtsResource($art), 'Art Found Successfully!');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function tracking($id)
     {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+        $user = User::find($id);
+        $arts = Art::all();
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        if (count($arts) > $user->track_art) {
+            $user->track_art = $user->track_art + 1;
+            $user->save();
+        } else {
+            echo "That's enough!";
+        }
     }
 }

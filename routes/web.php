@@ -42,7 +42,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function(){
 
     //Users
-    Route::get('/' ,[AdminUsersController::class, 'admin'])->name('admin');
     Route::get('users' ,[AdminUsersController::class, 'index'])->name('admin.users');
     Route::get('user/create' ,[AdminUsersController::class, 'create'])->name('admin.user.create');
     Route::post('user/store' ,[AdminUsersController::class, 'store'])->name('admin.user.store');
@@ -142,6 +141,7 @@ Route::group(['middleware' => 'isDoctor'], function(){
     Route::get('appointments', [DoctorController::class, 'appointments'])->name('appointments');
     Route::put('doctor/profile/update/{id}' ,[DoctorController::class, 'update'])->name('webdoctor.update');
     Route::post('/appointment/status/{id}', [DoctorController::class, 'changeStatus'])->name('appointment.status');
+    Route::post('doctor/updatenote/{id}', [DoctorController::class, 'updatenote'])->name('updatenote');
 
 });
 

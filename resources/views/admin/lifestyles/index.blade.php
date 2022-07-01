@@ -21,11 +21,9 @@
                         <tr>
                             <th>#</th>
                             <th>User</th>
-                            <th>test1</th>
-                            <th>test2</th>
-                            <th>test3</th>
-                            <th>test4</th>
-                            <th>test5</th>
+                            <th>Temprature</th>
+                            <th>Water</th>
+                            <th>Sleep</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -33,11 +31,9 @@
                             <tr>
                                 <td>{{$i++}}</td>
                                 <td>{{$lifestyle->users->name}}</td>
-                                <td>{{$lifestyle->test1}}</td>
-                                <td>{{$lifestyle->test2}}</td>
-                                <td>{{$lifestyle->test3}}</td>
-                                <td>{{$lifestyle->test4}}</td>
-                                <td>{{$lifestyle->test5}}</td>
+                                <td>{{$lifestyle->temp}}</td>
+                                <td>{{$lifestyle->water}}</td>
+                                <td>{{$lifestyle->sleep}}</td>
                             </tr>
                         @endforeach
                     </tbody>

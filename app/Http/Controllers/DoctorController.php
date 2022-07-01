@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Appointment;
+use App\Models\Art;
 use App\Models\Doctor;
+use App\Models\Lifestyle;
+use App\Models\Move;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -13,7 +16,6 @@ use Illuminate\Support\Facades\Validator;
 
 class DoctorController extends Controller
 {
-
     public function requests()
     {
         $appointments = Appointment::where('status', 'pending')->where('doctor_id', Auth::guard('webdoctor')->user()->id)->get();
@@ -22,23 +24,23 @@ class DoctorController extends Controller
 
     public function appointments()
     {
-        $appointments = Appointment::where('status', 'accepted')->where('doctor_id', Auth::guard('webdoctor')->user()->id)->get();
+        $appointments = Appointment::where('status', 'accept')->where('doctor_id', Auth::guard('webdoctor')->user()->id)->get();
         return view('doctor.appointments', compact('appointments'));
     }
 
-    public function changeStatus(Request $request , $id)
+    public function changeStatus(Request $request, $id)
     {
-        Appointment::where('id',$id)->update(['status'=>$request->status]);
+        Appointment::where('id', $id)->update(['status' => $request->status]);
         return back();
     }
 
     public function profile($id)
     {
         if ($id == Auth::guard('webdoctor')->user()->id) {
-            $doctor= Doctor::find($id);
+            $doctor = Doctor::find($id);
             return view('doctor.profile', compact('doctor'));
         } else
-        return "error 404";
+            return "error 404";
     }
     public function update(Request $request, $id)
     {
@@ -68,18 +70,43 @@ class DoctorController extends Controller
         $doctor->address = $input['address'];
         $doctor->save();
         return redirect()->back()->with('message', 'Doctor updated successfully');
-
     }
 
     public function patientdetails($id)
     {
-            $user = User::find($id);
-            return view('doctor.patient_details',compact('user'));
+        $user = User::find($id);
+        $moves = Move::all();
+        $arts = Art::all();
+        $lifestyle = Lifestyle::where('user_id', $id)->first();
+        $appointments = Appointment::where('status', 'accept')->where('user_id', $id)->get();
+        return view('doctor.patient_details', compact('user', 'appointments', 'moves', 'arts', 'lifestyle'));
     }
 
     public function patients()
-    { $id =  Auth::guard('webdoctor')->user()->id;
-        $users = User::where('doctor_id',$id)->get();
-        return view('doctor.patients',compact('users'));
+    {
+        $id =  Auth::guard('webdoctor')->user()->id;
+        $users = User::where('doctor_id', $id)->get();
+        return view('doctor.patients', compact('users'));
+    }
+
+    public function updatenote(Request $request, $id){
+
+        $input = $request->all();
+
+        $user = User::find($id);
+
+        $validator = Validator::make($input, [
+            'doctor_note' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            echo "error";
+        }
+
+        $user->doctor_note = $input['doctor_note'];
+        $user->save();
+
+        return redirect()->back();
+
     }
 }
