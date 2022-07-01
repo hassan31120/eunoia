@@ -32,6 +32,9 @@ return new class extends Migration
             $table->foreign('disease_id')->references('id')->on('diseases');
             $table->rememberToken();
             $table->timestamps();
+            $table->text('doctor_note')->nullable();
+            $table->integer('track_art')->nullable();
+            $table->integer('track_move')->nullable();
         });
     }
 

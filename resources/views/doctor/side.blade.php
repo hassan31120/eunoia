@@ -1,6 +1,6 @@
 <!-- start asideBar -->
 <aside class="col-md-2">
-    <div class="logo mt-5" data-aos="zoom-in"></div>
+    <a href="{{route('home')}}"><div class="logo mt-5" data-aos="zoom-in"></div></a>
     <ul class="menu">
         <li data-aos="zoom-in-right" class="item {{ Request::path() ==  'requests' ? 'active' : ''  }} ">
             <a href="{{route('requests')}}">

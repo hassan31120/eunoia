@@ -49,8 +49,12 @@ Route::resource('mentalgames', MentalGamesController::class);
 Route::get('randomgame', [MentalGamesController::class, 'randomGame']);
 
 Route::resource('activities', ActivitiesController::class);
+
 Route::resource('arts', ArtsController::class);
+Route::post('art/track/{id}', [ArtsController::class, 'tracking']);
+
 Route::resource('moves', movesController::class);
+Route::post('move/track/{id}', [movesController::class, 'tracking']);
 
 Route::resource('lifestyles', LifestyleController::class);
 Route::put('user/temp/{id}', [LifestyleController::class, 'temp']);
