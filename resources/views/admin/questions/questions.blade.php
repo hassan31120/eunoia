@@ -24,7 +24,7 @@
                             <th>#</th>
                             <th>Name</th>
                             <th>Survey</th>
-                            <th>Actions</th>
+                            <th class="col-2">Actions</th>
                         </tr>
                     </thead>
                     <tbody>

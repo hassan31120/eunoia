@@ -261,11 +261,11 @@ return [
             'url'         => 'admin/diseases',
             'icon'        => 'fas fa-fw fa-disease',
         ],
-        [
-            'text'        => 'activities',
-            'url'         => 'admin/activities',
-            'icon'        => 'fas fa-fw fa-list',
-        ],
+        // [
+        //     'text'        => 'activities',
+        //     'url'         => 'admin/activities',
+        //     'icon'        => 'fas fa-fw fa-list',
+        // ],
         [
             'text'        => 'surveys',
             'url'         => 'admin/surveys',

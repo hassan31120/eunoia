@@ -18,6 +18,7 @@
             <?php $i = 1; ?>
             @include('partial.alerts')
             @if (count($games) > 0)
+            <div class="table-responsive">
                 <table class="table table-striped text-center">
                     <thead class="thead-dark">
                         <tr>
@@ -26,8 +27,8 @@
                             <th>Description</th>
                             <th>Answer</th>
                             <th>Image</th>
-                            <th>Link</th>
-                            <th>Actions</th>
+                            {{-- <th>Link</th> --}}
+                            <th class="col-2">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -39,7 +40,7 @@
                                 <td>{{$game->description}}</td>
                                 <td>{{$game->answer}}</td>
                                 <td>{{$game->image}}</td>
-                                <td>{{$game->link}}</td>
+                                {{-- <td>{{$game->link}}</td> --}}
                                 <td>
                                     <a href="{{route('admin.game.edit', $game->id)}}" class="btn btn-info"> <i class="fas fa-edit"></i> edit</a>
                                     <a href="{{route('admin.game.destroy', $game->id)}}" style="margin-left: 5px" class="btn btn-danger"> <i class="fas fa-trash-alt"></i> delete</a>
@@ -48,6 +49,7 @@
                         @endforeach
                     </tbody>
                 </table>
+            </div>
             @else
             <div class="alert alert-danger" role="alert">
                 <h4 class="text-center">Sorry, There is no games yet!</h4>

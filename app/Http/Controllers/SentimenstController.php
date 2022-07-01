@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Sentiment;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class SentimenstController extends Controller
@@ -13,7 +14,8 @@ class SentimenstController extends Controller
     public function index()
     {
         $Sentiments = Sentiment::all();
-        return view('admin.Sentiments.index', compact('Sentiments'));
+        $users = User::where('id', $Sentiments->user_id)->first();
+        return view('admin.Sentiments.index', compact('Sentiments', 'users'));
 
     }
 

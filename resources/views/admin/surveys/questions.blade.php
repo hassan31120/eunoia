@@ -23,7 +23,7 @@
                         <tr>
                             <th>#</th>
                             <th>question</th>
-                            <th>Actions</th>
+                            <th class="col-2">Actions</th>
                         </tr>
                     </thead>
                     <tbody>

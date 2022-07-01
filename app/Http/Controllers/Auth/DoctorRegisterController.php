@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class DoctorRegisterController extends Controller
@@ -34,8 +35,8 @@ class DoctorRegisterController extends Controller
         $doctor->password = $password;
         $doctor->save();
 
-        return redirect(route('profile'))->with('message', 'You\'ve registered successfully');
+        return redirect(route('profile', $doctor->id));
     }
 
-    
+
 }
