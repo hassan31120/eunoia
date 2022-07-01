@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Sentiment;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -84,4 +85,11 @@ class AdminUsersController extends Controller
         $user->delete();
         return redirect(route('admin.users'))->with('message', 'User deleted successfully');
     }
+    public function Sentiments($id)
+    {
+        $user = User::find($id);
+        $Sentiments = Sentiment::where('user_id',$id)->get();
+        return view('admin.users.Sentiments',compact('Sentiments' ,'user'));
+    }
+
 }

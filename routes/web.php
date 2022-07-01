@@ -14,7 +14,9 @@ use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\Auth\DoctorAuthController;
 use App\Http\Controllers\Auth\DoctorRegisterController;
 use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\SentimenstController;
 use App\Http\Controllers\SurveyController;
+use App\Models\Sentiment;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -47,6 +49,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function(){
     Route::get('user/edit/{id}' ,[AdminUsersController::class, 'edit'])->name('admin.user.edit');
     Route::put('user/update/{id}' ,[AdminUsersController::class, 'update'])->name('admin.user.update');
     Route::get('user/destroy/{id}' ,[AdminUsersController::class, 'destroy'])->name('admin.user.destroy');
+    Route::get('user/Sentiments/{id}',[AdminUsersController::class,'Sentiments'])->name('admin.user.sentiment');
 
     //Doctors
     Route::get('doctors' ,[AdminDoctorsController::class, 'index'])->name('admin.doctors');
@@ -127,6 +130,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function(){
 
     //LifeStyle
     Route::get('lifestyles', [AdminLifestyleController::class, 'index'])->name('admin.lifestyle');
+    //Sentiments
+    Route::get('Sentiments',[SentimenstController::class,'index'])->name('admin.Sentiment');
 });
 
 Route::group(['middleware' => 'isDoctor'], function(){

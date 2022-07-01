@@ -28,6 +28,7 @@
                             <th>Gender</th>
                             <th>PhoneNo</th>
                             <th>Disease</th>
+                            <th>Sentiments</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -48,6 +49,7 @@
                                     not defined yet
                                 @endisset
                                 </td>
+                                <td > <a href="{{route('admin.user.sentiment', ['id' => $user->id])}}" class="btn btn-info btn-light">Sentiments <i class=""></i></a></td>
                                 <td>
                                     <a href="{{route('admin.user.edit', ['id' => $user->id])}}" class="btn btn-info"> <i class="fas fa-edit"></i> edit</a>
                                     <a href="{{route('admin.user.destroy', ['id' => $user->id])}}" style="margin-left: 5px" class="btn btn-danger"> <i class="fas fa-trash-alt"></i> delete</a>
