@@ -73,4 +73,8 @@ class User extends Authenticatable
     public function appointments(){
         return $this->hasMany('App\Models\Appointment');
     }
+
+    public function sentiments(){
+        return $this->hasMany(Sentiment::class);
+    }
 }

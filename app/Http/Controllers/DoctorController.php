@@ -7,6 +7,7 @@ use App\Models\Art;
 use App\Models\Doctor;
 use App\Models\Lifestyle;
 use App\Models\Move;
+use App\Models\Sentiment;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -78,8 +79,9 @@ class DoctorController extends Controller
         $moves = Move::all();
         $arts = Art::all();
         $lifestyle = Lifestyle::where('user_id', $id)->first();
+        $Sentiment = Sentiment::where('user_id', $id)->first();
         $appointments = Appointment::where('status', 'accept')->where('user_id', $id)->get();
-        return view('doctor.patient_details', compact('user', 'appointments', 'moves', 'arts', 'lifestyle'));
+        return view('doctor.patient_details', compact('user', 'appointments', 'moves', 'arts', 'lifestyle', 'Sentiment'));
     }
 
     public function patients()

@@ -87,11 +87,21 @@
                             <img src="{{ asset('doctor/images/icon/rating.png') }}" alt="">
                         </div>
                         <div class="desc">
-                            <span>mode</span>
-                            <h3>smile</h3>
+                            <span>Daily</span>
+                            <h3>Mood</h3>
                         </div>
                     </div>
-                    <div class="rating">75%</div>
+                    <div class="rating">
+
+                        {{ $user->user_mode }}
+
+                        {{-- Sad |
+                        Sick |
+                        Smile |
+                        Luaghing |
+                        Angry |
+                        Thinking --}}
+                    </div>
                 </div>
 
 
@@ -101,11 +111,11 @@
                             <img src="{{ asset('doctor/images/icon/rating-5.png') }}" alt="">
                         </div>
                         <div class="desc">
-                            <h3>note</h3>
-                            <span>{{$lifestyle->temp}}</span> <br>
+                            <span>note</span>
+                            <h3>Status</h3>
                         </div>
                     </div>
-                    <div class="rating">73%</div>
+                    <div class="rating">{{$Sentiment->status}}</div>
                 </div>
 
 
@@ -121,9 +131,9 @@
                     </div>
                     <div class="rating">
                         <?php
-                            $max = count($arts);
-                            $score = ($user->track_art / $max) * 100;
-                            echo floor($score) . '%';
+                        $max = count($arts);
+                        $score = ($user->track_art / $max) * 100;
+                        echo floor($score) . '%';
                         ?>
                     </div>
                 </div>
@@ -131,14 +141,21 @@
                 <div class="cart_item">
                     <div class="d-flex align-items-center">
                         <div class="mr-3 icon">
-                            <img src="{{ asset('doctor/images/icon/rating-4.png') }}" alt="">
+                            <img src="{{ asset('doctor/images/icon/water.png') }}" alt="">
                         </div>
                         <div class="desc">
                             <span>Lifestyle</span>
-                            <h3>Healthy</h3>
+                            <h3>Water</h3>
                         </div>
                     </div>
-                    <div class="rating">83%</div>
+                    <div class="rating">
+                        @isset($lifestyle)
+                            {{ $lifestyle->water }}
+                        @else
+                            not defined yet
+                        @endisset
+
+                    </div>
                 </div>
 
                 <div class="cart_item">
@@ -153,9 +170,9 @@
                     </div>
                     <div class="rating">
                         <?php
-                            $max = count($moves);
-                            $score = ($user->track_move / $max) * 100;
-                            echo floor($score) . '%';
+                        $max = count($moves);
+                        $score = ($user->track_move / $max) * 100;
+                        echo floor($score) . '%';
                         ?>
                     </div>
                 </div>
@@ -164,29 +181,36 @@
                 <div class="cart_item">
                     <div class="d-flex align-items-center">
                         <div class="mr-3 icon">
-                            <img src="{{ asset('doctor/images/icon/rating-3.png') }}" alt="">
+                            <img src="{{ asset('doctor/images/icon/sleeping.png') }}" alt="">
                         </div>
                         <div class="desc">
-                            <span>Breathing</span>
-                            <h3>Normal</h3>
+                            <span>Lifestyle</span>
+                            <h3>Sleeping</h3>
                         </div>
                     </div>
-                    <div class="rating">88%</div>
+                    <div class="rating">
+                        @isset($lifestyle)
+                            {{ $lifestyle->sleep }}
+                        @else
+                            not defined yet
+                        @endisset
+                    </div>
                 </div>
 
 
             </div><!-- ./patient_details_wrapper -->
 
 
-                <div class="next_appointment">
-                    <h2 class="title mb-4">Next appointments</h2>
-                    @foreach ($appointments as $appointment)
+            <div class="next_appointment">
+                <h2 class="title mb-4">Next appointments</h2>
+                @foreach ($appointments as $appointment)
                     <div class="d-flex next-parent ">
                         <div class="next_appointment_item">
                             <span class="date date-day">date</span>
                             <div class="date-box">
                                 <span>{{ $appointment->date }}</span>
-                                <span><img src="{{ asset('doctor/images/icon/vuesax-outline-calendar-2.png') }}" alt=""></span>
+                                <span><img src="{{ asset('doctor/images/icon/vuesax-outline-calendar-2.png') }}"
+                                        alt=""></span>
                             </div>
                         </div>
 
@@ -194,13 +218,14 @@
                             <span class="date date-hour">Hour</span>
                             <div class="date-box">
                                 <span>{{ $appointment->time }}</span>
-                                <span><img src="{{ asset('doctor/images/icon/vuesax-outline-clock.png') }}" alt=""></span>
+                                <span><img src="{{ asset('doctor/images/icon/vuesax-outline-clock.png') }}"
+                                        alt=""></span>
                             </div>
                         </div>
 
                     </div>
-                    @endforeach
-                </div><!-- ./next_appointment -->
+                @endforeach
+            </div><!-- ./next_appointment -->
 
 
             <div class="nots">

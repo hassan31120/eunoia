@@ -10,7 +10,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-class SentimenstController extends Controller
+
+class SentimenstController extends BaseController
 {
 
     public function index()
@@ -31,17 +32,18 @@ class SentimenstController extends Controller
         $user = User::find($id);
         $input = $request->all();
         $validator = Validator::make($input, [
-            'description' => 'required | text',
+            'description' => 'required'
         ]);
         if ($validator->fails()) {
             return $this->sendError('Validation Error !', $validator->errors());
         }
         $Sentiment = new Sentiment();
         $Sentiment->description = $request->input('description');
+        $Sentiment->status = $request->input('status');
+        $Sentiment->date = $request->input('date');
         $Sentiment->user_id = $user->id;
         $Sentiment->save();
         return $this->sendResponse(new SentimenstResource($Sentiment), 'Sentiment Updated successfully!');
-
 
     }
 
@@ -51,10 +53,10 @@ class SentimenstController extends Controller
         $Sentiment = Sentiment::find($id);
 
         if (is_null($Sentiment)) {
-            return $this->sendError('Lifestyle not found!');
+            return $this->sendError('Sentiment not found!');
         }
 
-        return $this->sendResponse(new SentimenstResource($Sentiment), 'Lifestyle Found Successfully!');
+        return $this->sendResponse(new SentimenstResource($Sentiment), 'Sentiment Found Successfully!');
     }
 
 

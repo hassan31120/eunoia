@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Sentiment extends Model
 {
     use HasFactory;
+    
     protected $fillable = [
         'description',
         'status',

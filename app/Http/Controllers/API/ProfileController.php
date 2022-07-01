@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\API\BaseController;
+use App\Http\Resources\DoctorResource;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Resources\UserResource;
 use App\Models\Disease;
+use App\Models\Doctor;
 use App\Models\Question;
 use App\Models\Survey;
 use Illuminate\Support\Facades\Hash;
