@@ -117,6 +117,7 @@
                         <p class="color-primary">
                             We welcome you to our Mindful guide to mental health awareness, which includes a variety of doctors who has a  specialized degree in (CBT) and (ERP) methods.
 Keep reading to learn more about mental health that enables us to find more joy in daily living.
+
                         </p>
                     </div>
 
